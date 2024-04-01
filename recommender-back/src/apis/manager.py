@@ -5,6 +5,7 @@ from .poi import PointOfInterest
 from ..services.data_fetcher import DataFetcher
 from ..services.api_fetcher import InternalApiService
 from ..db.db import get_collection
+from ..db.db import read_POIs
 import time
 
 def get_simulated_pois_as_json(air_temperature, wind_speed, humidity,
@@ -104,12 +105,13 @@ def get_pois():
     Returns:
         list: List of POI -objects.
     """
-    collection = get_collection()
-    all_documents = collection.find({})
+    #collection = get_collection()
+    #all_documents = collection.find({})
     pois = []
-    for poi in all_documents:
-        poi = PointOfInterest(poi['name'], poi['latitude'], poi['longitude'],
-                            poi['not_accessible_for'], poi['categories'])
+    read_pois = read_POIs()
+    for parsed_poi in read_pois:
+        poi = PointOfInterest(parsed_poi['name'], parsed_poi['latitude'], parsed_poi['longitude'],
+                            parsed_poi['not_accessible_for'], parsed_poi['categories'])
         pois.append(poi)
     return pois
 
@@ -126,6 +128,8 @@ def _add_aqi_to_forecast(forecast_data, aqi_data):
     for datetime, poi_coords in aqi_data.items():
         if datetime in forecast_data:
             for poi_coord, air_quality in poi_coords.items():
+                if poi_coord not in forecast_data[datetime]:
+                    continue
                 aqi_value = air_quality['Air Quality Index']
                 forecast_data[datetime][poi_coord]['Air quality'] = f'{aqi_value} AQI'
     return forecast_data

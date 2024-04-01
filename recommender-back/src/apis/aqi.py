@@ -32,8 +32,10 @@ class AQI:
         """Downloads NETCDF file, parses it and stores the data in the object.
            The temporary file is deleted afterwards.
         """
-        print("download_netcdf_and_store stopped")
-        return
+        path = "aqi.pkl"
+        if os.path.isfile(path):
+            print("download_netcdf_and_store stopped")
+            return
 
         netcdf_file_url = self._parse_xml()
 

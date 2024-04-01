@@ -1,4 +1,5 @@
 import os
+import json
 from dotenv import load_dotenv
 from pymongo import MongoClient
 
@@ -24,6 +25,15 @@ def get_db():
         print(' * Error connecting to MongoDB:', error)
         return None
 
+
+def read_POIs():
+    file = open(os.path.join(os.path.dirname(__file__), '..', 'static', 'pois_db.txt'), 'r')
+    pois = []
+    for line in file:
+        parsed_obj = json.loads(line)
+        pois.append(parsed_obj)
+    file.close()
+    return pois
 
 def get_collection():
     """
