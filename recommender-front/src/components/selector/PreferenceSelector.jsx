@@ -9,8 +9,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import '../../assets/style.css';
 import Typography from '@mui/material/Typography';
 
-function PreferenceSelector({ selectedCategories, onCategoryChange }) {
-  const allCategories = ['Sport halls', 'Open air pools and beaches', 'Athletic fields and venues', 'Neighbourhood sports areas', 'Fitness training parks'];
+function PreferenceSelector({ availableCategories, selectedCategories, onCategoryChange }) {
+  const allCategories = ['Weightlifting', 'Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Climbing', 'Football'];
 
   const isAllChecked = selectedCategories.includes('All');
 
@@ -48,7 +48,7 @@ function PreferenceSelector({ selectedCategories, onCategoryChange }) {
       >
         <MenuIcon />
       </IconButton>
-      <Typography variant="h7" onClick={handleMenuClick}>Facilities</Typography>
+      <Typography variant="h7" onClick={handleMenuClick}>Activities</Typography>
       <Menu
         id="category-menu"
         anchorEl={anchorEl}
@@ -88,6 +88,7 @@ function PreferenceSelector({ selectedCategories, onCategoryChange }) {
                   onChange={() => handleCategoryCheckboxChange(category)}
                   name={`${category}Checkbox`}
                   color="primary"
+                  disabled={!availableCategories.includes(category)}
                 />
               )}
               label={category}

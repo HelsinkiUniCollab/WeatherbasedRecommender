@@ -9,7 +9,7 @@ class PointOfInterest:
                           'Athletic fields and venues',
                           'Neighbourhood sports facilities and parks']
 
-    def __init__(self, name=None, latitude=None, longitude=None, not_accessible_for=None, categories=None):
+    def __init__(self, name=None, latitude=None, longitude=None, not_accessible_for=None, categories=None, activities=None):
         self.sun = times.get_sun_data()
         self.name = name
         self.latitude = latitude
@@ -19,6 +19,7 @@ class PointOfInterest:
         self.categories = categories
         self.weather = {}
         self.categorytype = None
+        self.activities = activities
         self.scorers = {
             "Indoor": IndoorScorer(),
             "Outdoor": OutdoorScorer()
@@ -123,4 +124,5 @@ class PointOfInterest:
         return {'name': self.name, 'weather': self.weather,
                 'latitude': self.latitude, 'longitude': self.longitude,
                 'category': self.categories[-1], 'catetype': self.categorytype,
+                'activities':self.activities,
                 'not_accessible_for': self.not_accessible_for, 'all_categories': self.categories}

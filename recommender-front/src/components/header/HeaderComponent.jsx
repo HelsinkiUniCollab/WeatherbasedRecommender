@@ -14,7 +14,8 @@ import SettingsSelector from '../selector/SettingsSelector';
 
 function HeaderComponent({
   handleChange, times, sliderValue, onChange, isMobile, open, handleOpen,
-  handleClose, poiData, selectedCategories, setSelectedCategories,
+  handleClose, poiData, availableCategories,
+  selectedCategories, setSelectedCategories,
   medicalCategories, setMedicalCategories, handleProfileChange,
 }) {
   const hours = parseSliderLabels(times);
@@ -57,6 +58,7 @@ function HeaderComponent({
           onCategoryChange={setMedicalCategories}
         />
         <PreferenceSelector
+          availableCategories={availableCategories}
           selectedCategories={selectedCategories}
           onCategoryChange={setSelectedCategories}
         />

@@ -17,9 +17,10 @@ import './assets/style.css';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
-import medicalEnum from './MedicalFilter';
+import covertMedicalCategories from './MedicalFilter';
 
 function App() {
+  const DEFAULT_MED_CATEGORIES = ['Weightlifting', 'Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Climbing', 'Football'];
   const [accessibility, setAccessibility] = useState('');
   const [allPoiData, setAllPoiData] = useState([]);
   const [poiData, setPoiData] = useState([]);
@@ -33,6 +34,7 @@ function App() {
   const [warning, setWarning] = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState(['All']);
+  const [availableCategories, setAvailableCategories] = useState(DEFAULT_MED_CATEGORIES);
   const [medicalCategories, setMedicalCategories] = useState(['None']);
   const [profile, setProfile] = useState(['None']);
   let poisReceived = false;
@@ -76,17 +78,6 @@ function App() {
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const covertMedicalCategories = (medCategories) => {
-    const outputCategories = [];
-    for (let i = 0; i < medCategories.length; i += 1) {
-      medicalEnum[medCategories[i]].forEach((element) => outputCategories.push(element));
-    }
-    // console.log(new Set(outputCategories));
-    let tmp = new Set(outputCategories);
-    tmp = Array.from(tmp);
-    return tmp;
-  };
-
   const filterPoiData = (data, access, categories, healthCategories) => {
     let filteredData = data;
 
@@ -102,14 +93,14 @@ function App() {
       const convertedCategories = covertMedicalCategories(healthCategories);
       // console.log(convertedCategories);
       filteredData = filteredData.filter((poi) => {
-        const intersection = poi.all_categories.filter((element) => convertedCategories
+        const intersection = poi.activities.filter((element) => convertedCategories
           .includes(element));
         return intersection.length !== 0;
       });
     }
     // Filter by categories
     if (categories.length > 0 && categories[0] !== 'All') {
-      filteredData = filteredData.filter((poi) => categories.includes(poi.category));
+      filteredData = filteredData.filter((p) => p.activities.some((r) => categories.includes(r)));
     }
 
     setPoiData(filteredData);
@@ -143,6 +134,15 @@ function App() {
   useEffect(() => {
     filterPoiData(allPoiData, accessibility, selectedCategories, medicalCategories);
   }, [accessibility, allPoiData, selectedCategories, medicalCategories]);
+
+  useEffect(() => {
+    if (medicalCategories.length > 0 && medicalCategories[0] !== 'None') {
+      const convertedCategories = covertMedicalCategories(medicalCategories);
+      setAvailableCategories(convertedCategories);
+    } else {
+      setAvailableCategories(DEFAULT_MED_CATEGORIES);
+    }
+  }, [medicalCategories]);
 
   useEffect(() => {
     if (poiData.length > 0) {
@@ -196,6 +196,7 @@ function App() {
                       poiData={poiData}
                       selectedCategories={selectedCategories}
                       setSelectedCategories={setSelectedCategories}
+                      availableCategories={availableCategories}
                       medicalCategories={medicalCategories}
                       setMedicalCategories={setMedicalCategories}
                       handleProfileChange={setProfile}

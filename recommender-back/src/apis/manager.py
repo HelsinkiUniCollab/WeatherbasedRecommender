@@ -111,7 +111,7 @@ def get_pois():
     read_pois = read_POIs()
     for parsed_poi in read_pois:
         poi = PointOfInterest(parsed_poi['name'], parsed_poi['latitude'], parsed_poi['longitude'],
-                            parsed_poi['not_accessible_for'], parsed_poi['categories'])
+                            parsed_poi['not_accessible_for'], parsed_poi['categories'], parsed_poi['activities'])
         pois.append(poi)
     return pois
 
