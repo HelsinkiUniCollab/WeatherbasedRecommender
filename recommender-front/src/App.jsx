@@ -18,6 +18,7 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import covertMedicalCategories from './MedicalFilter';
+import { getAllowedActivities } from './Utils';
 
 function App() {
   const DEFAULT_MED_CATEGORIES = ['Weightlifting', 'Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Climbing', 'Football'];
@@ -37,6 +38,8 @@ function App() {
   const [availableCategories, setAvailableCategories] = useState(DEFAULT_MED_CATEGORIES);
   const [medicalCategories, setMedicalCategories] = useState(['None']);
   const [profile, setProfile] = useState(['None']);
+  const [rec, setRec] = useState(['None']);
+  const [position, setPosition] = useState([60.2049, 24.9649]);
   let poisReceived = false;
   const toggleHeader = () => {
     setHeaderHidden(!headerHidden);
@@ -47,6 +50,8 @@ function App() {
   };
 
   const handleSliderChange = (event) => {
+    // remove
+    console.log(rec);
     setSelectedValue(event.target.value);
   };
 
@@ -63,7 +68,6 @@ function App() {
   };
 
   const handleCircleRoute = (latitude, longitude) => {
-    console.log('Circle');
     if (userPosition === null) {
       setUserPosition([latitude, longitude]);
       setDestination([latitude, longitude]);
@@ -72,13 +76,25 @@ function App() {
     }
   };
 
-  const handleSetDestination = (latitude, longitude) => {
-    setDestination([latitude, longitude]);
+  const handleSetDestination = (latitude, longitude, activity) => {
+    if (activity === 'Walking') {
+      handleCircleRoute(userPosition[0], userPosition[1]);
+      setPosition([userPosition[0], userPosition[1]]);
+    } else {
+      setDestination([latitude, longitude]);
+      setPosition([latitude, longitude]);
+    }
   };
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const filterPoiData = (data, access, categories, healthCategories) => {
+  const filterPoiData = (
+    data,
+    access,
+    selectedActivities,
+    availableActivities,
+    healthCategories,
+  ) => {
     let filteredData = data;
 
     // Filter by accessibility
@@ -98,10 +114,10 @@ function App() {
         return intersection.length !== 0;
       });
     }
+    const activities = getAllowedActivities(availableActivities, selectedActivities);
     // Filter by categories
-    if (categories.length > 0 && categories[0] !== 'All') {
-      filteredData = filteredData.filter((p) => p.activities.some((r) => categories.includes(r)));
-    }
+    filteredData = filteredData.filter((p) => p.activities.some((r) => activities
+      .includes(r)));
 
     setPoiData(filteredData);
   };
@@ -120,7 +136,13 @@ function App() {
         const poiResponse = await fetch(`${apiUrl}/api/poi`);
         const poi = await poiResponse.json();
         setAllPoiData(poi);
-        filterPoiData(poi, accessibility, selectedCategories, medicalCategories);
+        filterPoiData(
+          poi,
+          accessibility,
+          selectedCategories,
+          availableCategories,
+          medicalCategories,
+        );
       }
     } catch (error) {
       console.error('Error fetching the Point of Interests: ', error);
@@ -132,8 +154,14 @@ function App() {
   }, []);
 
   useEffect(() => {
-    filterPoiData(allPoiData, accessibility, selectedCategories, medicalCategories);
-  }, [accessibility, allPoiData, selectedCategories, medicalCategories]);
+    filterPoiData(
+      allPoiData,
+      accessibility,
+      selectedCategories,
+      availableCategories,
+      medicalCategories,
+    );
+  }, [accessibility, allPoiData, selectedCategories, availableCategories, medicalCategories]);
 
   useEffect(() => {
     if (medicalCategories.length > 0 && medicalCategories[0] !== 'None') {
@@ -200,6 +228,9 @@ function App() {
                       medicalCategories={medicalCategories}
                       setMedicalCategories={setMedicalCategories}
                       handleProfileChange={setProfile}
+                      userPosition={userPosition}
+                      chooseRec={setRec}
+                      handleSetDestination={handleSetDestination}
                     />
                   </Grid>
                   <Grid
@@ -209,6 +240,7 @@ function App() {
                   >
                     <WeatherAlert showAlert={showAlert} />
                     <MapComponent
+                      position={position}
                       accessibility={accessibility}
                       poiData={poiData}
                       time={times[selectedValue]}

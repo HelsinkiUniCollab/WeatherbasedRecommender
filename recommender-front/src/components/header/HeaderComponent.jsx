@@ -11,12 +11,14 @@ import '../../assets/style.css';
 import MedicalSelector from '../selector/MedicalSelector';
 import AccessibilitySelector from '../selector/AccessibilitySelector';
 import SettingsSelector from '../selector/SettingsSelector';
+import RecommendationDrawer from '../selector/RecommendationDrawer';
 
 function HeaderComponent({
   handleChange, times, sliderValue, onChange, isMobile, open, handleOpen,
   handleClose, poiData, availableCategories,
   selectedCategories, setSelectedCategories,
-  medicalCategories, setMedicalCategories, handleProfileChange,
+  medicalCategories, setMedicalCategories,
+  handleProfileChange, chooseRec, userPosition, handleSetDestination,
 }) {
   const hours = parseSliderLabels(times);
   return (
@@ -41,6 +43,15 @@ function HeaderComponent({
         <img src={logo} alt="Weather-Based Recommender" className="logo" />
         <SettingsSelector
           onProfileChange={handleProfileChange}
+        />
+        <RecommendationDrawer
+          poiData={poiData}
+          onRecChoice={chooseRec}
+          userPosition={userPosition}
+          timeValue={times[sliderValue]}
+          availableActivities={availableCategories}
+          selectedActivities={selectedCategories}
+          handleSetDestination={handleSetDestination}
         />
       </Grid>
       <Grid

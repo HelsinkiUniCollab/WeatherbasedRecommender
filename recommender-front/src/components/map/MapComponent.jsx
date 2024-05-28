@@ -8,9 +8,8 @@ import CircleButton from '../buttons/CircleButton';
 
 function MapComponent({
   poiData, time, handleSetOrigin, userPosition, handleSetDestination, routeCoordinates,
-  headerHidden, handleCircleRoute,
+  headerHidden, handleCircleRoute, position,
 }) {
-  const position = [60.2049, 24.9649];
   const minZoom = 12;
   const maxZoom = 18;
   const bounds = [[60, 24.6], [60.35, 25.355]];
@@ -36,6 +35,7 @@ function MapComponent({
           }
         />
         <LocateButton
+          positionToFlyTo={position}
           handleSetOrigin={handleSetOrigin}
         />
         <CircleButton

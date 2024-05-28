@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import { useMap } from 'react-leaflet';
+import { defaultLocation } from '../../Utils';
 
-function LocateButton({ handleSetOrigin }) {
-  const staticLat = 60.198805;
-  const staticLon = 24.935671;
+function LocateButton({ handleSetOrigin, positionToFlyTo }) {
   const [locating, setLocating] = useState(false);
 
   const buttonStyle = {
@@ -27,10 +26,15 @@ function LocateButton({ handleSetOrigin }) {
     setLocating(false);
   };
 
+  // I had to pass this property here to call flyTo
+  useEffect(() => {
+    map.flyTo([positionToFlyTo[0], positionToFlyTo[1]], map.getZoom());
+  }, [positionToFlyTo]);
+
   const error = () => {
     console.log('Unable to retrieve your location');
-    map.flyTo([staticLat, staticLon], map.getZoom());
-    handleSetOrigin(staticLat, staticLon);
+    map.flyTo([defaultLocation.lat, defaultLocation.lon], map.getZoom());
+    handleSetOrigin(defaultLocation.lat, defaultLocation.lon);
     setLocating(false);
   };
 

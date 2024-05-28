@@ -10,7 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Radio, RadioGroup } from '@mui/material';
 
 function AccessibilitySelector({ onCategoryChange }) {
-  const allCategories = [{ name: 'Any accessibility', val: '' }, { name: 'Rollator accessible', val: 'rollator' },
+  const allCategories = [{ name: 'No restrictions', val: '' }, { name: 'Rollator accessible', val: 'rollator' },
     { name: 'Stroller accessible', val: 'stroller' }, { name: 'Wheelchair accessible', val: 'wheelchair' }, { name: 'Reduced mobility', val: 'reduced_mobility' },
     { name: 'Visually impaired', val: 'visually_impaired' }];
 

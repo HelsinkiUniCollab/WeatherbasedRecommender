@@ -31,7 +31,7 @@ function InfoComponent({ open, handleOpen, handleClose }) {
               <Typography variant="infotext"><a href="https://en.ilmatieteenlaitos.fi/">Finnish meteorological institute</a></Typography>
             </li>
             <li>
-              <Typography variant="infotext"><a href="https://green-paths.web.app/">GreenPaths</a></Typography>
+              <Typography variant="infotext"><a href="https://www.graphhopper.com/">GraphHopper</a></Typography>
             </li>
           </ul>
         </DialogContent>
