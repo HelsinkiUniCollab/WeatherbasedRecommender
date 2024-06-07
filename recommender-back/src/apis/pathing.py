@@ -1,5 +1,7 @@
 import requests
 import random
+import os
+from dotenv import load_dotenv
 
 
 class GreenPathsAPI:
@@ -68,6 +70,8 @@ class GraphhopperAPI:
     def __init__(self, travel_mode="walk", routing_mode="fast"):
         self.travel_mode = travel_mode
         self.routing_mode = routing_mode
+        load_dotenv()
+        self.path_uri = os.environ['PATH_URI']
 
     def get_routing_profile(self, routing_type: str, mobility_profile: str) -> str:
         if routing_type == "fast" and mobility_profile == "foot":
@@ -94,7 +98,7 @@ class GraphhopperAPI:
         """
         starting_point = (start_coords[1], start_coords[0])
         profile = self.get_routing_profile(route_type, mobility_type)
-        url = f"http://localhost:8989/route"
+        url = self.path_uri
         payload = {
         "points": [starting_point],
         "profile": profile,
@@ -130,7 +134,7 @@ class GraphhopperAPI:
         starting_point = (start_coords[1], start_coords[0])
         destination = (end_coords[1], end_coords[0])
         profile = self.get_routing_profile(route_type, mobility_type)
-        url = f"http://localhost:8989/route"
+        url = self.path_uri
         payload = {
             "points": [starting_point, destination],
             "profile": profile,
