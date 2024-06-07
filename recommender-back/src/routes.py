@@ -15,7 +15,7 @@ weather_fetcher = DataFetcher()
 @app.route("/", methods=["GET"])
 def index():
     """
-    Handler for the root endpoint. 
+    Handler for the root endpoint.
 
     Returns:
         A JSON response containing a greeting message.
@@ -61,7 +61,7 @@ def get_aqi_forecast():
     return json.dumps(aqi_data)
 
 
-@app.route("/api/poi/", methods=["GET"])
+@app.route("/api/poi", methods=["GET"])
 def get_poi_data():
     """
     Handler for the '/api/poi' endpoint.
@@ -70,7 +70,6 @@ def get_poi_data():
         POI's data if errors have not occurred.
     """
     return manager.get_pois_as_json()
-    
 
 
 @app.route("/api/simulator", methods=["POST"])
@@ -91,7 +90,8 @@ def get_simulated_poi_data():
     current_time = data.get('current_time')
     sunrise = data.get('sunrise')
     sunset = data.get('sunset')
-    if '' in [air_temperature, wind_speed, humidity, precipitation, cloud_amount, air_quality, current_time, sunrise, sunset]:
+    if '' in [air_temperature, wind_speed, humidity, precipitation, cloud_amount, air_quality, current_time, sunrise,
+              sunset]:
         return jsonify({"error": "Missing parameters"}), 400
     return manager.get_simulated_pois_as_json(air_temperature, wind_speed, humidity,
                                               precipitation, cloud_amount, air_quality, current_time, sunrise, sunset)
