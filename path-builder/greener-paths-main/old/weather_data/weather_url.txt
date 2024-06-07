@@ -1,0 +1,1 @@
+http://opendata.fmi.fi/wfs/fin?service=WFS&version=2.0.0&request=GetFeature&storedquery_id=fmi::forecast::enfuser::airquality::helsinki-metropolitan::grid&starttime=2023-07-20T15:00:00Z&endtime=2023-07-20T16:00:00Z&parameters=AQIndex

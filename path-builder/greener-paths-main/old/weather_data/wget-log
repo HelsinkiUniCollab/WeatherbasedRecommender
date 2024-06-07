@@ -1,0 +1,6 @@
+--2023-07-21 10:37:46--  http://opendata.fmi.fi/download?producer=enfuser_helsinki_metropolitan
+Resolving opendata.fmi.fi (opendata.fmi.fi)... 193.166.221.39
+Connecting to opendata.fmi.fi (opendata.fmi.fi)|193.166.221.39|:80... connected.
+HTTP request sent, awaiting response... 400 Bad Request
+2023-07-21 10:37:47 ERROR 400: Bad Request.
+

@@ -1,0 +1,62 @@
+services:
+  mongodb:
+    image: "mongodb/mongodb-community-server:latest"
+    volumes:
+      - "mongo-test:/data/db"
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 2
+      start_period: 20s
+
+  background_services:
+    build:
+      context: .
+      dockerfile: background.Dockerfile
+    depends_on:
+      mongodb:
+        condition: "service_healthy"
+        restart: true
+    healthcheck:
+      test: bash -c "[ -f /intial_aqi_update_true ]"
+      interval: 60s
+      timeout: 10s
+      retries: 20
+      start_period: 0s
+    volumes:
+      - "graphhopper_data:/graphhopper_data"
+
+  graphhopper:
+    image: "activity-recommender/graphhopper:latest"
+    command: "--input /graphhopper/data/helsinki.osm.pbf --config /graphhopper/data/config.yml --graph-cache /graphhopper/data/graph_cache --port 8989 --host 0.0.0.0"
+    depends_on:
+      background_services:
+        condition: "service_healthy"
+    ports:
+      - "8989:8989"
+      - "8990:8990"
+    volumes:
+      - "graphhopper_data:/graphhopper/data"
+
+  greener_paths:
+    build: .
+    depends_on:
+      background_services:
+        condition: "service_healthy"
+    ports:
+      - "8050:8050"
+    volumes:
+        - graphhopper_data:/greener_paths/graphhopper_data
+    healthcheck:
+      test: ["CMD", "curl", "-s", "-o", "/dev/null", "-w", "%{http_code}", "http://localhost:8050"]
+      interval: 30s
+      timeout: 10s
+      retries: 40
+      start_period: 30s
+
+volumes:
+  mongo-test:
+  graphhopper_data:
+
+

@@ -1,0 +1,12 @@
+# VSCode related
+.vscode/
+
+# Python related
+__pycache__/
+
+# Don't commit data to Git
+data/*
+
+# Graphhopper related
+graphhopper_server/graphhopper_data/*
+!graphhopper_server/graphhopper_data/config.yml

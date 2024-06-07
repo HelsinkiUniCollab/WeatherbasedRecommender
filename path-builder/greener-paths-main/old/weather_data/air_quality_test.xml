@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:FeatureCollection
+    timeStamp="2023-07-21T11:42:05Z"
+    numberMatched="7"
+    numberReturned="7"
+        xmlns:wfs="http://www.opengis.net/wfs/2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:om="http://www.opengis.net/om/2.0"
+    xmlns:omso="http://inspire.ec.europa.eu/schemas/omso/3.0"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:gmd="http://www.isotc211.org/2005/gmd"
+    xmlns:swe="http://www.opengis.net/swe/2.0"
+    xmlns:gmlcov="http://www.opengis.net/gmlcov/1.0"
+    xmlns:inspire="urn:x-inspire:specification:gmlas:BaseTypes:3.2"
+    xmlns:sam="http://www.opengis.net/sampling/2.0"
+    xmlns:sams="http://www.opengis.net/samplingSpatial/2.0" 
+    xmlns:target="http://xml.fmi.fi/namespace/om/atmosphericfeatures/1.1"
+    xsi:schemaLocation="
+    http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+    http://www.opengis.net/gmlcov/1.0 http://schemas.opengis.net/gmlcov/1.0/gmlcovAll.xsd
+    http://www.opengis.net/sampling/2.0 http://schemas.opengis.net/sampling/2.0/samplingFeature.xsd
+    http://www.opengis.net/samplingSpatial/2.0 http://schemas.opengis.net/samplingSpatial/2.0/spatialSamplingFeature.xsd
+    http://www.opengis.net/swe/2.0 http://schemas.opengis.net/sweCommon/2.0/swe.xsd
+    http://inspire.ec.europa.eu/schemas/omso/3.0 https://inspire.ec.europa.eu/schemas/omso/3.0/SpecialisedObservations.xsd
+    http://www.isotc211.org/2005/gmd http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd
+    http://xml.fmi.fi/namespace/om/atmosphericfeatures/1.1 https://xml.fmi.fi/schema/om/atmosphericfeatures/1.1/atmosphericfeatures.xsd">
+
+    
+    <wfs:member>
+        <omso:GridSeriesObservation gml:id="WFS-pSJcWX3rzHQjf_vjWKEOgF23lOmJTowv4WbbpdOs2_llx4efR06y7s3Xnl5OnWHTy49cOzT08unWjLs56d2vSt25enLfw37NPTDudOs_LTkhZmbfy24elZm7L0x5MzYzddmyTu6ZeXbDskNTZl7ZdlbDs65acAam3L0y76GHlh21xQaMndky.MWLf4esmi5q4rObMFzFmyY1nMmq5i5cuKzGzBczbOGpv5ac.ndU07ctqf.FO0YJY4TQ4ct.Trjy8q.su7N155eV_Rl2c9O7Xpv7cvTlv4b9mnph3NThy36suPpp37q0otCnHdNGbJs3OfTfyy5OPXLy839OSv8LNt0unWbfyy48PPo6dZd2brzy8nTrDp5ceuHZp6eXTrRl2c9O7XpW7cvTlv4b9mnph3OnWflpyAA-">
+
+                        <om:phenomenonTime>
+                <gml:TimePeriod gml:id="ph-time-1-0">
+                    <gml:beginPosition>2023-07-20T10:00:00Z</gml:beginPosition>
+                    <gml:endPosition>2023-07-22T01:00:00Z</gml:endPosition>
+                </gml:TimePeriod>
+            </om:phenomenonTime>
+            <om:resultTime>
+                <gml:TimeInstant gml:id="rs-time-1-0">
+                <gml:timePosition>2023-07-20T10:00:00Z</gml:timePosition>
+                </gml:TimeInstant>
+            </om:resultTime>
+            <om:validTime>
+                <gml:TimePeriod gml:id="vt-time-1-0">
+                    <gml:beginPosition>2023-07-20T10:00:00Z</gml:beginPosition>
+                    <gml:endPosition>2023-07-22T01:00:00Z</gml:endPosition>
+                </gml:TimePeriod>
+            </om:validTime>
+
+              <om:procedure xlink:href="http://xml.fmi.fi/inspire/process/enfuser_helsinki_metropolitan"/>
+	                  <om:parameter>
+                <om:NamedValue>
+                    <om:name xlink:href="https://inspire.ec.europa.eu/codeList/ProcessParameterValue/value/numericalModel/analysisTime"/>
+                    <om:value>
+                        <gml:TimeInstant gml:id="analysis-time---1-0"> 
+			    <gml:timePosition>2023-07-20T10:00:00Z</gml:timePosition> 
+                        </gml:TimeInstant>
+                    </om:value>
+                </om:NamedValue>
+            </om:parameter>
+
+            <om:observedProperty xlink:href="http://opendata.fmi.fi/meta?observableProperty=forecast&amp;param=&amp;language=fin&amp;units=netcdf"/>
+                        <om:featureOfInterest>
+                <sams:SF_SpatialSamplingFeature gml:id="s-1-0">
+                <sam:sampledFeature>
+                    <target:SurfaceWeatherTargetArea gml:id="sampledFeatureTarget-0-1"> 
+                        <target:geometry>
+                            <gml:Polygon gml:id="sampledFeatureTarget-polygon-0-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" srsDimension="2">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:coordinates>
+					    24.58 60.1321 24.58 60.368 25.1998 60.368 25.1998 60.1321 24.58 60.1321
+                                        </gml:coordinates>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>                
+                        </target:geometry>
+            		<target:observableProperty xlink:href="http://opendata.fmi.fi/meta?observableProperty=forecast&amp;param=&amp;language=fin&amp;units=netcdf"/>
+                    </target:SurfaceWeatherTargetArea>
+                </sam:sampledFeature>
+                <sams:shape>
+                    <gml:Polygon gml:id="samplingFeatureTarget-polygon-0-1">
+                        <gml:exterior>
+                            <gml:LinearRing>
+                                <gml:coordinates>
+					24.58 60.1321 24.58 60.368 25.1998 60.368 25.1998 60.1321 24.58 60.1321
+	  	                </gml:coordinates>
+                            </gml:LinearRing>
+                        </gml:exterior>
+                    </gml:Polygon>                    
+                </sams:shape>            
+            </sams:SF_SpatialSamplingFeature>
+            </om:featureOfInterest>           
+
+	                <om:result>        
+                <gmlcov:RectifiedGridCoverage gml:id="rgd-0-1">
+                    <gml:domainSet>
+                        <gml:RectifiedGrid gml:id="rg-0-1" dimension="2">
+                            <gml:limits>
+                                <gml:GridEnvelope>                                                                           
+                                    <gml:low>0 0</gml:low>
+                                    <gml:high>2631 2018</gml:high>
+                                </gml:GridEnvelope>
+                            </gml:limits>
+                            <gml:axisLabels>Lat Long</gml:axisLabels>
+                            <gml:origin>
+                                <gml:Point gml:id="origin-point-0-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" srsDimension="2">
+                                    <gml:pos>24.58 60.368</gml:pos>
+                                </gml:Point>
+                            </gml:origin>
+                            <gml:offsetVector>0.0262057016712748 0</gml:offsetVector>
+                            <gml:offsetVector>0 0.0130053490264878</gml:offsetVector>                            
+                        </gml:RectifiedGrid>
+                    </gml:domainSet>
+                    <gml:rangeSet>           
+                        <gml:File>
+                            <gml:rangeParameters/>
+                            <gml:fileReference>http://opendata.fmi.fi/download?producer=enfuser_helsinki_metropolitan&amp;param=&amp;bbox=24.58,60.1321,25.1998,60.368&amp;levels=0&amp;origintime=2023-07-20T10:00:00Z&amp;starttime=2023-07-20T10:00:00Z&amp;endtime=2023-07-22T01:00:00Z&amp;format=netcdf&amp;projection=EPSG:4326</gml:fileReference>     
+                            <gml:fileStructure codeSpace="http://cfconventions.org/Data/cf-standard-names/26/src/cf-standard-name-table.xml"></gml:fileStructure>              
+                            <gml:mimeType>application/octet-stream</gml:mimeType>
+                        </gml:File>
+                    </gml:rangeSet>
+                    <gml:coverageFunction>
+                        <gml:CoverageMappingRule>
+                            <gml:ruleDefinition>Linear</gml:ruleDefinition>
+                        </gml:CoverageMappingRule>
+                    </gml:coverageFunction>
+                    <gmlcov:rangeType>
+                        <swe:DataRecord></swe:DataRecord>
+                    </gmlcov:rangeType>              
+                </gmlcov:RectifiedGridCoverage>
+            </om:result>
+
+        </omso:GridSeriesObservation>
+    </wfs:member>
+    
+    <wfs:member>
+        <omso:GridSeriesObservation gml:id="WFS-PRZlHAY4QmfSCT3MbiudOwjUbjaJTowv4WbbpdOs2_llx4efR06y7s3Xnl5OnWHTy49cOzT08unWjLs56d2vSt25enLfw37NPTDudOs_LTkhZmbfy24elZm7L0x5MzYzddmyTu6ZeXbDskNTZl7ZdlbDs65acAam3L0y76GHlh21xQaMndky.MWLf4esmi5q4rObMFzFmyY1nMmq5i5cuKzGzBczbOGpv5ac.ndU07ctqf.FO0YJqoTQ4ct.Trjy8q.su7N155eV_Rl2c9O7Xpv7cvTlv4b9mnph3NThy36suPpp37q0otCnHdNGbJs3OfTfyy5OPXLy839OSv8LNt0unWbfyy48PPo6dZd2brzy8nTrDp5ceuHZp6eXTrRl2c9O7XpW7cvTlv4b9mnph3OnWflpyAA-">
+
+                        <om:phenomenonTime>
+                <gml:TimePeriod gml:id="ph-time-1-1">
+                    <gml:beginPosition>2023-07-20T12:00:00Z</gml:beginPosition>
+                    <gml:endPosition>2023-07-22T03:00:00Z</gml:endPosition>
+                </gml:TimePeriod>
+            </om:phenomenonTime>
+            <om:resultTime>
+                <gml:TimeInstant gml:id="rs-time-1-1">
+                <gml:timePosition>2023-07-20T12:00:00Z</gml:timePosition>
+                </gml:TimeInstant>
+            </om:resultTime>
+            <om:validTime>
+                <gml:TimePeriod gml:id="vt-time-1-1">
+                    <gml:beginPosition>2023-07-20T12:00:00Z</gml:beginPosition>
+                    <gml:endPosition>2023-07-22T03:00:00Z</gml:endPosition>
+                </gml:TimePeriod>
+            </om:validTime>
+
+              <om:procedure xlink:href="http://xml.fmi.fi/inspire/process/enfuser_helsinki_metropolitan"/>
+	                  <om:parameter>
+                <om:NamedValue>
+                    <om:name xlink:href="https://inspire.ec.europa.eu/codeList/ProcessParameterValue/value/numericalModel/analysisTime"/>
+                    <om:value>
+                        <gml:TimeInstant gml:id="analysis-time---1-1"> 
+			    <gml:timePosition>2023-07-20T12:00:00Z</gml:timePosition> 
+                        </gml:TimeInstant>
+                    </om:value>
+                </om:NamedValue>
+            </om:parameter>
+
+            <om:observedProperty xlink:href="http://opendata.fmi.fi/meta?observableProperty=forecast&amp;param=&amp;language=fin&amp;units=netcdf"/>
+                        <om:featureOfInterest>
+                <sams:SF_SpatialSamplingFeature gml:id="s-1-1">
+                <sam:sampledFeature>
+                    <target:SurfaceWeatherTargetArea gml:id="sampledFeatureTarget-1-1"> 
+                        <target:geometry>
+                            <gml:Polygon gml:id="sampledFeatureTarget-polygon-1-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" srsDimension="2">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:coordinates>
+					    24.58 60.1321 24.58 60.368 25.1998 60.368 25.1998 60.1321 24.58 60.1321
+                                        </gml:coordinates>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>                
+                        </target:geometry>
+            		<target:observableProperty xlink:href="http://opendata.fmi.fi/meta?observableProperty=forecast&amp;param=&amp;language=fin&amp;units=netcdf"/>
+                    </target:SurfaceWeatherTargetArea>
+                </sam:sampledFeature>
+                <sams:shape>
+                    <gml:Polygon gml:id="samplingFeatureTarget-polygon-1-1">
+                        <gml:exterior>
+                            <gml:LinearRing>
+                                <gml:coordinates>
+					24.58 60.1321 24.58 60.368 25.1998 60.368 25.1998 60.1321 24.58 60.1321
+	  	                </gml:coordinates>
+                            </gml:LinearRing>
+                        </gml:exterior>
+                    </gml:Polygon>                    
+                </sams:shape>            
+            </sams:SF_SpatialSamplingFeature>
+            </om:featureOfInterest>           
+
+	                <om:result>        
+                <gmlcov:RectifiedGridCoverage gml:id="rgd-1-1">
+                    <gml:domainSet>
+                        <gml:RectifiedGrid gml:id="rg-1-1" dimension="2">
+                            <gml:limits>
+                                <gml:GridEnvelope>                                                                           
+                                    <gml:low>0 0</gml:low>
+                                    <gml:high>2631 2018</gml:high>
+                                </gml:GridEnvelope>
+                            </gml:limits>
+                            <gml:axisLabels>Lat Long</gml:axisLabels>
+                            <gml:origin>
+                                <gml:Point gml:id="origin-point-1-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" srsDimension="2">
+                                    <gml:pos>24.58 60.368</gml:pos>
+                                </gml:Point>
+                            </gml:origin>
+                            <gml:offsetVector>0.0262057016712748 0</gml:offsetVector>
+                            <gml:offsetVector>0 0.0130053490264878</gml:offsetVector>                            
+                        </gml:RectifiedGrid>
+                    </gml:domainSet>
+                    <gml:rangeSet>           
+                        <gml:File>
+                            <gml:rangeParameters/>
+                            <gml:fileReference>http://opendata.fmi.fi/download?producer=enfuser_helsinki_metropolitan&amp;param=&amp;bbox=24.58,60.1321,25.1998,60.368&amp;levels=0&amp;origintime=2023-07-20T12:00:00Z&amp;starttime=2023-07-20T12:00:00Z&amp;endtime=2023-07-22T03:00:00Z&amp;format=netcdf&amp;projection=EPSG:4326</gml:fileReference>     
+                            <gml:fileStructure codeSpace="http://cfconventions.org/Data/cf-standard-names/26/src/cf-standard-name-table.xml"></gml:fileStructure>              
+                            <gml:mimeType>application/octet-stream</gml:mimeType>
+                        </gml:File>
+                    </gml:rangeSet>
+                    <gml:coverageFunction>
+                        <gml:CoverageMappingRule>
+                            <gml:ruleDefinition>Linear</gml:ruleDefinition>
+                        </gml:CoverageMappingRule>
+                    </gml:coverageFunction>
+                    <gmlcov:rangeType>
+                        <swe:DataRecord></swe:DataRecord>
+                    </gmlcov:rangeType>              
+                </gmlcov:RectifiedGridCoverage>
+            </om:result>
+
+        </omso:GridSeriesObservation>
+    </wfs:member>
+    
+    <wfs:member>
+        <omso:GridSeriesObservation gml:id="WFS-DMC4_WMhLDQWVm08R_a8ELvgOCCJTowv4WbbpdOs2_llx4efR06y7s3Xnl5OnWHTy49cOzT08unWjLs56d2vSt25enLfw37NPTDudOs_LTkhZmbfy24elZm7L0x5MzYzddmyTu6ZeXbDskNTZl7ZdlbDs65acAam3L0y76GHlh21xQaMndky.MWLf4esmi5q4rObMFzFmyY1nMmq5i5cuKzGzBczbOGpv5ac.ndU07ctqf.FO0YJ8YTQ4ct.Trjy8q.su7N155eV_Rl2c9O7Xpv7cvTlv4b9mnph3NThy36suPpp37q0otCnHdNGbJs3OfTfyy5OPXLy839OSv8LNt0unWbfyy48PPo6dZd2brzy8nTrDp5ceuHZp6eXTrRl2c9O7XpW7cvTlv4b9mnph3OnWflpyAA-">
+
+                        <om:phenomenonTime>
+                <gml:TimePeriod gml:id="ph-time-1-2">
+                    <gml:beginPosition>2023-07-20T14:00:00Z</gml:beginPosition>
+                    <gml:endPosition>2023-07-22T05:00:00Z</gml:endPosition>
+                </gml:TimePeriod>
+            </om:phenomenonTime>
+            <om:resultTime>
+                <gml:TimeInstant gml:id="rs-time-1-2">
+                <gml:timePosition>2023-07-20T14:00:00Z</gml:timePosition>
+                </gml:TimeInstant>
+            </om:resultTime>
+            <om:validTime>
+                <gml:TimePeriod gml:id="vt-time-1-2">
+                    <gml:beginPosition>2023-07-20T14:00:00Z</gml:beginPosition>
+                    <gml:endPosition>2023-07-22T05:00:00Z</gml:endPosition>
+                </gml:TimePeriod>
+            </om:validTime>
+
+              <om:procedure xlink:href="http://xml.fmi.fi/inspire/process/enfuser_helsinki_metropolitan"/>
+	                  <om:parameter>
+                <om:NamedValue>
+                    <om:name xlink:href="https://inspire.ec.europa.eu/codeList/ProcessParameterValue/value/numericalModel/analysisTime"/>
+                    <om:value>
+                        <gml:TimeInstant gml:id="analysis-time---1-2"> 
+			    <gml:timePosition>2023-07-20T14:00:00Z</gml:timePosition> 
+                        </gml:TimeInstant>
+                    </om:value>
+                </om:NamedValue>
+            </om:parameter>
+
+            <om:observedProperty xlink:href="http://opendata.fmi.fi/meta?observableProperty=forecast&amp;param=&amp;language=fin&amp;units=netcdf"/>
+                        <om:featureOfInterest>
+                <sams:SF_SpatialSamplingFeature gml:id="s-1-2">
+                <sam:sampledFeature>
+                    <target:SurfaceWeatherTargetArea gml:id="sampledFeatureTarget-2-1"> 
+                        <target:geometry>
+                            <gml:Polygon gml:id="sampledFeatureTarget-polygon-2-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" srsDimension="2">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:coordinates>
+					    24.58 60.1321 24.58 60.368 25.1998 60.368 25.1998 60.1321 24.58 60.1321
+                                        </gml:coordinates>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>                
+                        </target:geometry>
+            		<target:observableProperty xlink:href="http://opendata.fmi.fi/meta?observableProperty=forecast&amp;param=&amp;language=fin&amp;units=netcdf"/>
+                    </target:SurfaceWeatherTargetArea>
+                </sam:sampledFeature>
+                <sams:shape>
+                    <gml:Polygon gml:id="samplingFeatureTarget-polygon-2-1">
+                        <gml:exterior>
+                            <gml:LinearRing>
+                                <gml:coordinates>
+					24.58 60.1321 24.58 60.368 25.1998 60.368 25.1998 60.1321 24.58 60.1321
+	  	                </gml:coordinates>
+                            </gml:LinearRing>
+                        </gml:exterior>
+                    </gml:Polygon>                    
+                </sams:shape>            
+            </sams:SF_SpatialSamplingFeature>
+            </om:featureOfInterest>           
+
+	                <om:result>        
+                <gmlcov:RectifiedGridCoverage gml:id="rgd-2-1">
+                    <gml:domainSet>
+                        <gml:RectifiedGrid gml:id="rg-2-1" dimension="2">
+                            <gml:limits>
+                                <gml:GridEnvelope>                                                                           
+                                    <gml:low>0 0</gml:low>
+                                    <gml:high>2631 2018</gml:high>
+                                </gml:GridEnvelope>
+                            </gml:limits>
+                            <gml:axisLabels>Lat Long</gml:axisLabels>
+                            <gml:origin>
+                                <gml:Point gml:id="origin-point-2-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" srsDimension="2">
+                                    <gml:pos>24.58 60.368</gml:pos>
+                                </gml:Point>
+                            </gml:origin>
+                            <gml:offsetVector>0.0262057016712748 0</gml:offsetVector>
+                            <gml:offsetVector>0 0.0130053490264878</gml:offsetVector>                            
+                        </gml:RectifiedGrid>
+                    </gml:domainSet>
+                    <gml:rangeSet>           
+                        <gml:File>
+                            <gml:rangeParameters/>
+                            <gml:fileReference>http://opendata.fmi.fi/download?producer=enfuser_helsinki_metropolitan&amp;param=&amp;bbox=24.58,60.1321,25.1998,60.368&amp;levels=0&amp;origintime=2023-07-20T14:00:00Z&amp;starttime=2023-07-20T14:00:00Z&amp;endtime=2023-07-22T05:00:00Z&amp;format=netcdf&amp;projection=EPSG:4326</gml:fileReference>     
+                            <gml:fileStructure codeSpace="http://cfconventions.org/Data/cf-standard-names/26/src/cf-standard-name-table.xml"></gml:fileStructure>              
+                            <gml:mimeType>application/octet-stream</gml:mimeType>
+                        </gml:File>
+                    </gml:rangeSet>
+                    <gml:coverageFunction>
+                        <gml:CoverageMappingRule>
+                            <gml:ruleDefinition>Linear</gml:ruleDefinition>
+                        </gml:CoverageMappingRule>
+                    </gml:coverageFunction>
+                    <gmlcov:rangeType>
+                        <swe:DataRecord></swe:DataRecord>
+                    </gmlcov:rangeType>              
+                </gmlcov:RectifiedGridCoverage>
+            </om:result>
+
+        </omso:GridSeriesObservation>
+    </wfs:member>
+    
+    <wfs:member>
+        <omso:GridSeriesObservation gml:id="WFS-eNioQ7Qowe9YjAU4136vmpxNcteJTowv4WbbpdOs2_llx4efR06y7s3Xnl5OnWHTy49cOzT08unWjLs56d2vSt25enLfw37NPTDudOs_LTkhZmbfy24elZm7L0x5MzYzddmyTu6ZeXbDskNTZl7ZdlbDs65acAam3L0y76GHlh21xQaMndky.MWLf4esmi5q4rObMFzFmyY1nMmq5i5cuKzGzBczbOGpv5ac.ndU07ctqf.FO0YKOITQ4ct.Trjy8q.su7N155eV_Rl2c9O7Xpv7cvTlv4b9mnph3NThy36suPpp37q0otCnHdNGbJs3OfTfyy5OPXLy839OSv8LNt0unWbfyy48PPo6dZd2brzy8nTrDp5ceuHZp6eXTrRl2c9O7XpW7cvTlv4b9mnph3OnWflpyAA-">
+
+                        <om:phenomenonTime>
+                <gml:TimePeriod gml:id="ph-time-1-3">
+                    <gml:beginPosition>2023-07-20T16:00:00Z</gml:beginPosition>
+                    <gml:endPosition>2023-07-22T07:00:00Z</gml:endPosition>
+                </gml:TimePeriod>
+            </om:phenomenonTime>
+            <om:resultTime>
+                <gml:TimeInstant gml:id="rs-time-1-3">
+                <gml:timePosition>2023-07-20T16:00:00Z</gml:timePosition>
+                </gml:TimeInstant>
+            </om:resultTime>
+            <om:validTime>
+                <gml:TimePeriod gml:id="vt-time-1-3">
+                    <gml:beginPosition>2023-07-20T16:00:00Z</gml:beginPosition>
+                    <gml:endPosition>2023-07-22T07:00:00Z</gml:endPosition>
+                </gml:TimePeriod>
+            </om:validTime>
+
+              <om:procedure xlink:href="http://xml.fmi.fi/inspire/process/enfuser_helsinki_metropolitan"/>
+	                  <om:parameter>
+                <om:NamedValue>
+                    <om:name xlink:href="https://inspire.ec.europa.eu/codeList/ProcessParameterValue/value/numericalModel/analysisTime"/>
+                    <om:value>
+                        <gml:TimeInstant gml:id="analysis-time---1-3"> 
+			    <gml:timePosition>2023-07-20T16:00:00Z</gml:timePosition> 
+                        </gml:TimeInstant>
+                    </om:value>
+                </om:NamedValue>
+            </om:parameter>
+
+            <om:observedProperty xlink:href="http://opendata.fmi.fi/meta?observableProperty=forecast&amp;param=&amp;language=fin&amp;units=netcdf"/>
+                        <om:featureOfInterest>
+                <sams:SF_SpatialSamplingFeature gml:id="s-1-3">
+                <sam:sampledFeature>
+                    <target:SurfaceWeatherTargetArea gml:id="sampledFeatureTarget-3-1"> 
+                        <target:geometry>
+                            <gml:Polygon gml:id="sampledFeatureTarget-polygon-3-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" srsDimension="2">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:coordinates>
+					    24.58 60.1321 24.58 60.368 25.1998 60.368 25.1998 60.1321 24.58 60.1321
+                                        </gml:coordinates>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>                
+                        </target:geometry>
+            		<target:observableProperty xlink:href="http://opendata.fmi.fi/meta?observableProperty=forecast&amp;param=&amp;language=fin&amp;units=netcdf"/>
+                    </target:SurfaceWeatherTargetArea>
+                </sam:sampledFeature>
+                <sams:shape>
+                    <gml:Polygon gml:id="samplingFeatureTarget-polygon-3-1">
+                        <gml:exterior>
+                            <gml:LinearRing>
+                                <gml:coordinates>
+					24.58 60.1321 24.58 60.368 25.1998 60.368 25.1998 60.1321 24.58 60.1321
+	  	                </gml:coordinates>
+                            </gml:LinearRing>
+                        </gml:exterior>
+                    </gml:Polygon>                    
+                </sams:shape>            
+            </sams:SF_SpatialSamplingFeature>
+            </om:featureOfInterest>           
+
+	                <om:result>        
+                <gmlcov:RectifiedGridCoverage gml:id="rgd-3-1">
+                    <gml:domainSet>
+                        <gml:RectifiedGrid gml:id="rg-3-1" dimension="2">
+                            <gml:limits>
+                                <gml:GridEnvelope>                                                                           
+                                    <gml:low>0 0</gml:low>
+                                    <gml:high>2631 2018</gml:high>
+                                </gml:GridEnvelope>
+                            </gml:limits>
+                            <gml:axisLabels>Lat Long</gml:axisLabels>
+                            <gml:origin>
+                                <gml:Point gml:id="origin-point-3-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" srsDimension="2">
+                                    <gml:pos>24.58 60.368</gml:pos>
+                                </gml:Point>
+                            </gml:origin>
+                            <gml:offsetVector>0.0262057016712748 0</gml:offsetVector>
+                            <gml:offsetVector>0 0.0130053490264878</gml:offsetVector>                            
+                        </gml:RectifiedGrid>
+                    </gml:domainSet>
+                    <gml:rangeSet>           
+                        <gml:File>
+                            <gml:rangeParameters/>
+                            <gml:fileReference>http://opendata.fmi.fi/download?producer=enfuser_helsinki_metropolitan&amp;param=&amp;bbox=24.58,60.1321,25.1998,60.368&amp;levels=0&amp;origintime=2023-07-20T16:00:00Z&amp;starttime=2023-07-20T16:00:00Z&amp;endtime=2023-07-22T07:00:00Z&amp;format=netcdf&amp;projection=EPSG:4326</gml:fileReference>     
+                            <gml:fileStructure codeSpace="http://cfconventions.org/Data/cf-standard-names/26/src/cf-standard-name-table.xml"></gml:fileStructure>              
+                            <gml:mimeType>application/octet-stream</gml:mimeType>
+                        </gml:File>
+                    </gml:rangeSet>
+                    <gml:coverageFunction>
+                        <gml:CoverageMappingRule>
+                            <gml:ruleDefinition>Linear</gml:ruleDefinition>
+                        </gml:CoverageMappingRule>
+                    </gml:coverageFunction>
+                    <gmlcov:rangeType>
+                        <swe:DataRecord></swe:DataRecord>
+                    </gmlcov:rangeType>              
+                </gmlcov:RectifiedGridCoverage>
+            </om:result>
+
+        </omso:GridSeriesObservation>
+    </wfs:member>
+    
+    <wfs:member>
+        <omso:GridSeriesObservation gml:id="WFS-Hr7pkxq1i9gOSmvpJZV8m5Wwzi6JTowv4WbbpdOs2_llx4efR06y7s3Xnl5OnWHTy49cOzT08unWjLs56d2vSt25enLfw37NPTDudOs_LTkhZmbfy24elZm7L0x5MzYzddmyTu6ZeXbDskNTZl7ZdlbDs65acAam3L0y76GHlh21xQaMndky.MWLf4esmi5q4rObMFzFmyY1nMmq5i5cuKzGzBczbOGpv5ac.ndU07ctqf.FO0YKf4TQ4ct.Trjy8q.su7N155eV_Rl2c9O7Xpv7cvTlv4b9mnph3NThy36suPpp37q0otCnHdNGbJs3OfTfyy5OPXLy839OSv8LNt0unWbfyy48PPo6dZd2brzy8nTrDp5ceuHZp6eXTrRl2c9O7XpW7cvTlv4b9mnph3OnWflpyAA-">
+
+                        <om:phenomenonTime>
+                <gml:TimePeriod gml:id="ph-time-1-4">
+                    <gml:beginPosition>2023-07-20T18:00:00Z</gml:beginPosition>
+                    <gml:endPosition>2023-07-22T09:00:00Z</gml:endPosition>
+                </gml:TimePeriod>
+            </om:phenomenonTime>
+            <om:resultTime>
+                <gml:TimeInstant gml:id="rs-time-1-4">
+                <gml:timePosition>2023-07-20T18:00:00Z</gml:timePosition>
+                </gml:TimeInstant>
+            </om:resultTime>
+            <om:validTime>
+                <gml:TimePeriod gml:id="vt-time-1-4">
+                    <gml:beginPosition>2023-07-20T18:00:00Z</gml:beginPosition>
+                    <gml:endPosition>2023-07-22T09:00:00Z</gml:endPosition>
+                </gml:TimePeriod>
+            </om:validTime>
+
+              <om:procedure xlink:href="http://xml.fmi.fi/inspire/process/enfuser_helsinki_metropolitan"/>
+	                  <om:parameter>
+                <om:NamedValue>
+                    <om:name xlink:href="https://inspire.ec.europa.eu/codeList/ProcessParameterValue/value/numericalModel/analysisTime"/>
+                    <om:value>
+                        <gml:TimeInstant gml:id="analysis-time---1-4"> 
+			    <gml:timePosition>2023-07-20T18:00:00Z</gml:timePosition> 
+                        </gml:TimeInstant>
+                    </om:value>
+                </om:NamedValue>
+            </om:parameter>
+
+            <om:observedProperty xlink:href="http://opendata.fmi.fi/meta?observableProperty=forecast&amp;param=&amp;language=fin&amp;units=netcdf"/>
+                        <om:featureOfInterest>
+                <sams:SF_SpatialSamplingFeature gml:id="s-1-4">
+                <sam:sampledFeature>
+                    <target:SurfaceWeatherTargetArea gml:id="sampledFeatureTarget-4-1"> 
+                        <target:geometry>
+                            <gml:Polygon gml:id="sampledFeatureTarget-polygon-4-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" srsDimension="2">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:coordinates>
+					    24.58 60.1321 24.58 60.368 25.1998 60.368 25.1998 60.1321 24.58 60.1321
+                                        </gml:coordinates>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>                
+                        </target:geometry>
+            		<target:observableProperty xlink:href="http://opendata.fmi.fi/meta?observableProperty=forecast&amp;param=&amp;language=fin&amp;units=netcdf"/>
+                    </target:SurfaceWeatherTargetArea>
+                </sam:sampledFeature>
+                <sams:shape>
+                    <gml:Polygon gml:id="samplingFeatureTarget-polygon-4-1">
+                        <gml:exterior>
+                            <gml:LinearRing>
+                                <gml:coordinates>
+					24.58 60.1321 24.58 60.368 25.1998 60.368 25.1998 60.1321 24.58 60.1321
+	  	                </gml:coordinates>
+                            </gml:LinearRing>
+                        </gml:exterior>
+                    </gml:Polygon>                    
+                </sams:shape>            
+            </sams:SF_SpatialSamplingFeature>
+            </om:featureOfInterest>           
+
+	                <om:result>        
+                <gmlcov:RectifiedGridCoverage gml:id="rgd-4-1">
+                    <gml:domainSet>
+                        <gml:RectifiedGrid gml:id="rg-4-1" dimension="2">
+                            <gml:limits>
+                                <gml:GridEnvelope>                                                                           
+                                    <gml:low>0 0</gml:low>
+                                    <gml:high>2631 2018</gml:high>
+                                </gml:GridEnvelope>
+                            </gml:limits>
+                            <gml:axisLabels>Lat Long</gml:axisLabels>
+                            <gml:origin>
+                                <gml:Point gml:id="origin-point-4-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" srsDimension="2">
+                                    <gml:pos>24.58 60.368</gml:pos>
+                                </gml:Point>
+                            </gml:origin>
+                            <gml:offsetVector>0.0262057016712748 0</gml:offsetVector>
+                            <gml:offsetVector>0 0.0130053490264878</gml:offsetVector>                            
+                        </gml:RectifiedGrid>
+                    </gml:domainSet>
+                    <gml:rangeSet>           
+                        <gml:File>
+                            <gml:rangeParameters/>
+                            <gml:fileReference>http://opendata.fmi.fi/download?producer=enfuser_helsinki_metropolitan&amp;param=&amp;bbox=24.58,60.1321,25.1998,60.368&amp;levels=0&amp;origintime=2023-07-20T18:00:00Z&amp;starttime=2023-07-20T18:00:00Z&amp;endtime=2023-07-22T09:00:00Z&amp;format=netcdf&amp;projection=EPSG:4326</gml:fileReference>     
+                            <gml:fileStructure codeSpace="http://cfconventions.org/Data/cf-standard-names/26/src/cf-standard-name-table.xml"></gml:fileStructure>              
+                            <gml:mimeType>application/octet-stream</gml:mimeType>
+                        </gml:File>
+                    </gml:rangeSet>
+                    <gml:coverageFunction>
+                        <gml:CoverageMappingRule>
+                            <gml:ruleDefinition>Linear</gml:ruleDefinition>
+                        </gml:CoverageMappingRule>
+                    </gml:coverageFunction>
+                    <gmlcov:rangeType>
+                        <swe:DataRecord></swe:DataRecord>
+                    </gmlcov:rangeType>              
+                </gmlcov:RectifiedGridCoverage>
+            </om:result>
+
+        </omso:GridSeriesObservation>
+    </wfs:member>
+    
+    <wfs:member>
+        <omso:GridSeriesObservation gml:id="WFS-RYfwPuR7U8.yxdCKylxAB1l6nfiJTowv4WbbpdOs2_llx4efR06y7s3Xnl5OnWHTy49cOzT08unWjLs56d2vSt25enLfw37NPTDudOs_LTkhZmbfy24elZm7L0x5MzYzddmyTu6ZeXbDskNTZl7ZdlbDs65acAam3L0y76GHlh21xQaMndky.MWLf4esmi5q4rObMFzFmyY1nMmq5i5cuKzGzBczbOGpv5ac.ndU07ctqf.FO0YKpojQ4ct.Trjy8q.su7N155eV_Rl2c9O7Xpv7cvTlv4b9mnph3NThy36suPpp37q0otCnHdNGbJs3OfTfyy5OPXLy839OSv8LNt0unWbfyy48PPo6dZd2brzy8nTrDp5ceuHZp6eXTrRl2c9O7XpW7cvTlv4b9mnph3OnWflpyAA-">
+
+                        <om:phenomenonTime>
+                <gml:TimePeriod gml:id="ph-time-1-5">
+                    <gml:beginPosition>2023-07-20T20:00:00Z</gml:beginPosition>
+                    <gml:endPosition>2023-07-22T11:00:00Z</gml:endPosition>
+                </gml:TimePeriod>
+            </om:phenomenonTime>
+            <om:resultTime>
+                <gml:TimeInstant gml:id="rs-time-1-5">
+                <gml:timePosition>2023-07-20T20:00:00Z</gml:timePosition>
+                </gml:TimeInstant>
+            </om:resultTime>
+            <om:validTime>
+                <gml:TimePeriod gml:id="vt-time-1-5">
+                    <gml:beginPosition>2023-07-20T20:00:00Z</gml:beginPosition>
+                    <gml:endPosition>2023-07-22T11:00:00Z</gml:endPosition>
+                </gml:TimePeriod>
+            </om:validTime>
+
+              <om:procedure xlink:href="http://xml.fmi.fi/inspire/process/enfuser_helsinki_metropolitan"/>
+	                  <om:parameter>
+                <om:NamedValue>
+                    <om:name xlink:href="https://inspire.ec.europa.eu/codeList/ProcessParameterValue/value/numericalModel/analysisTime"/>
+                    <om:value>
+                        <gml:TimeInstant gml:id="analysis-time---1-5"> 
+			    <gml:timePosition>2023-07-20T20:00:00Z</gml:timePosition> 
+                        </gml:TimeInstant>
+                    </om:value>
+                </om:NamedValue>
+            </om:parameter>
+
+            <om:observedProperty xlink:href="http://opendata.fmi.fi/meta?observableProperty=forecast&amp;param=&amp;language=fin&amp;units=netcdf"/>
+                        <om:featureOfInterest>
+                <sams:SF_SpatialSamplingFeature gml:id="s-1-5">
+                <sam:sampledFeature>
+                    <target:SurfaceWeatherTargetArea gml:id="sampledFeatureTarget-5-1"> 
+                        <target:geometry>
+                            <gml:Polygon gml:id="sampledFeatureTarget-polygon-5-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" srsDimension="2">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:coordinates>
+					    24.58 60.1321 24.58 60.368 25.1998 60.368 25.1998 60.1321 24.58 60.1321
+                                        </gml:coordinates>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>                
+                        </target:geometry>
+            		<target:observableProperty xlink:href="http://opendata.fmi.fi/meta?observableProperty=forecast&amp;param=&amp;language=fin&amp;units=netcdf"/>
+                    </target:SurfaceWeatherTargetArea>
+                </sam:sampledFeature>
+                <sams:shape>
+                    <gml:Polygon gml:id="samplingFeatureTarget-polygon-5-1">
+                        <gml:exterior>
+                            <gml:LinearRing>
+                                <gml:coordinates>
+					24.58 60.1321 24.58 60.368 25.1998 60.368 25.1998 60.1321 24.58 60.1321
+	  	                </gml:coordinates>
+                            </gml:LinearRing>
+                        </gml:exterior>
+                    </gml:Polygon>                    
+                </sams:shape>            
+            </sams:SF_SpatialSamplingFeature>
+            </om:featureOfInterest>           
+
+	                <om:result>        
+                <gmlcov:RectifiedGridCoverage gml:id="rgd-5-1">
+                    <gml:domainSet>
+                        <gml:RectifiedGrid gml:id="rg-5-1" dimension="2">
+                            <gml:limits>
+                                <gml:GridEnvelope>                                                                           
+                                    <gml:low>0 0</gml:low>
+                                    <gml:high>2631 2018</gml:high>
+                                </gml:GridEnvelope>
+                            </gml:limits>
+                            <gml:axisLabels>Lat Long</gml:axisLabels>
+                            <gml:origin>
+                                <gml:Point gml:id="origin-point-5-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" srsDimension="2">
+                                    <gml:pos>24.58 60.368</gml:pos>
+                                </gml:Point>
+                            </gml:origin>
+                            <gml:offsetVector>0.0262057016712748 0</gml:offsetVector>
+                            <gml:offsetVector>0 0.0130053490264878</gml:offsetVector>                            
+                        </gml:RectifiedGrid>
+                    </gml:domainSet>
+                    <gml:rangeSet>           
+                        <gml:File>
+                            <gml:rangeParameters/>
+                            <gml:fileReference>http://opendata.fmi.fi/download?producer=enfuser_helsinki_metropolitan&amp;param=&amp;bbox=24.58,60.1321,25.1998,60.368&amp;levels=0&amp;origintime=2023-07-20T20:00:00Z&amp;starttime=2023-07-20T20:00:00Z&amp;endtime=2023-07-22T11:00:00Z&amp;format=netcdf&amp;projection=EPSG:4326</gml:fileReference>     
+                            <gml:fileStructure codeSpace="http://cfconventions.org/Data/cf-standard-names/26/src/cf-standard-name-table.xml"></gml:fileStructure>              
+                            <gml:mimeType>application/octet-stream</gml:mimeType>
+                        </gml:File>
+                    </gml:rangeSet>
+                    <gml:coverageFunction>
+                        <gml:CoverageMappingRule>
+                            <gml:ruleDefinition>Linear</gml:ruleDefinition>
+                        </gml:CoverageMappingRule>
+                    </gml:coverageFunction>
+                    <gmlcov:rangeType>
+                        <swe:DataRecord></swe:DataRecord>
+                    </gmlcov:rangeType>              
+                </gmlcov:RectifiedGridCoverage>
+            </om:result>
+
+        </omso:GridSeriesObservation>
+    </wfs:member>
+    
+    <wfs:member>
+        <omso:GridSeriesObservation gml:id="WFS-Fbjz3v82PmUBmQWfvQYYqkEdZViJTowv4WbbpdOs2_llx4efR06y7s3Xnl5OnWHTy49cOzT08unWjLs56d2vSt25enLfw37NPTDudOs_LTkhZmbfy24elZm7L0x5MzYzddmyTu6ZeXbDskNTZl7ZdlbDs65acAam3L0y76GHlh21xQaMndky.MWLf4esmi5q4rObMFzFmyY1nMmq5i5cuKzGzBczbOGpv5ac.ndU07ctqf.FO0YK7YjQ4ct.Trjy8q.su7N155eV_Rl2c9O7Xpv7cvTlv4b9mnph3NThy36suPpp37q0otCnHdNGbJs3OfTfyy5OPXLy839OSv8LNt0unWbfyy48PPo6dZd2brzy8nTrDp5ceuHZp6eXTrRl2c9O7XpW7cvTlv4b9mnph3OnWflpyAA-">
+
+                        <om:phenomenonTime>
+                <gml:TimePeriod gml:id="ph-time-1-6">
+                    <gml:beginPosition>2023-07-20T22:00:00Z</gml:beginPosition>
+                    <gml:endPosition>2023-07-22T13:00:00Z</gml:endPosition>
+                </gml:TimePeriod>
+            </om:phenomenonTime>
+            <om:resultTime>
+                <gml:TimeInstant gml:id="rs-time-1-6">
+                <gml:timePosition>2023-07-20T22:00:00Z</gml:timePosition>
+                </gml:TimeInstant>
+            </om:resultTime>
+            <om:validTime>
+                <gml:TimePeriod gml:id="vt-time-1-6">
+                    <gml:beginPosition>2023-07-20T22:00:00Z</gml:beginPosition>
+                    <gml:endPosition>2023-07-22T13:00:00Z</gml:endPosition>
+                </gml:TimePeriod>
+            </om:validTime>
+
+              <om:procedure xlink:href="http://xml.fmi.fi/inspire/process/enfuser_helsinki_metropolitan"/>
+	                  <om:parameter>
+                <om:NamedValue>
+                    <om:name xlink:href="https://inspire.ec.europa.eu/codeList/ProcessParameterValue/value/numericalModel/analysisTime"/>
+                    <om:value>
+                        <gml:TimeInstant gml:id="analysis-time---1-6"> 
+			    <gml:timePosition>2023-07-20T22:00:00Z</gml:timePosition> 
+                        </gml:TimeInstant>
+                    </om:value>
+                </om:NamedValue>
+            </om:parameter>
+
+            <om:observedProperty xlink:href="http://opendata.fmi.fi/meta?observableProperty=forecast&amp;param=&amp;language=fin&amp;units=netcdf"/>
+                        <om:featureOfInterest>
+                <sams:SF_SpatialSamplingFeature gml:id="s-1-6">
+                <sam:sampledFeature>
+                    <target:SurfaceWeatherTargetArea gml:id="sampledFeatureTarget-6-1"> 
+                        <target:geometry>
+                            <gml:Polygon gml:id="sampledFeatureTarget-polygon-6-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" srsDimension="2">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:coordinates>
+					    24.58 60.1321 24.58 60.368 25.1998 60.368 25.1998 60.1321 24.58 60.1321
+                                        </gml:coordinates>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>                
+                        </target:geometry>
+            		<target:observableProperty xlink:href="http://opendata.fmi.fi/meta?observableProperty=forecast&amp;param=&amp;language=fin&amp;units=netcdf"/>
+                    </target:SurfaceWeatherTargetArea>
+                </sam:sampledFeature>
+                <sams:shape>
+                    <gml:Polygon gml:id="samplingFeatureTarget-polygon-6-1">
+                        <gml:exterior>
+                            <gml:LinearRing>
+                                <gml:coordinates>
+					24.58 60.1321 24.58 60.368 25.1998 60.368 25.1998 60.1321 24.58 60.1321
+	  	                </gml:coordinates>
+                            </gml:LinearRing>
+                        </gml:exterior>
+                    </gml:Polygon>                    
+                </sams:shape>            
+            </sams:SF_SpatialSamplingFeature>
+            </om:featureOfInterest>           
+
+	                <om:result>        
+                <gmlcov:RectifiedGridCoverage gml:id="rgd-6-1">
+                    <gml:domainSet>
+                        <gml:RectifiedGrid gml:id="rg-6-1" dimension="2">
+                            <gml:limits>
+                                <gml:GridEnvelope>                                                                           
+                                    <gml:low>0 0</gml:low>
+                                    <gml:high>2631 2018</gml:high>
+                                </gml:GridEnvelope>
+                            </gml:limits>
+                            <gml:axisLabels>Lat Long</gml:axisLabels>
+                            <gml:origin>
+                                <gml:Point gml:id="origin-point-6-1" srsName="http://www.opengis.net/def/crs/EPSG/0/4326" srsDimension="2">
+                                    <gml:pos>24.58 60.368</gml:pos>
+                                </gml:Point>
+                            </gml:origin>
+                            <gml:offsetVector>0.0262057016712748 0</gml:offsetVector>
+                            <gml:offsetVector>0 0.0130053490264878</gml:offsetVector>                            
+                        </gml:RectifiedGrid>
+                    </gml:domainSet>
+                    <gml:rangeSet>           
+                        <gml:File>
+                            <gml:rangeParameters/>
+                            <gml:fileReference>http://opendata.fmi.fi/download?producer=enfuser_helsinki_metropolitan&amp;param=&amp;bbox=24.58,60.1321,25.1998,60.368&amp;levels=0&amp;origintime=2023-07-20T22:00:00Z&amp;starttime=2023-07-20T22:00:00Z&amp;endtime=2023-07-22T13:00:00Z&amp;format=netcdf&amp;projection=EPSG:4326</gml:fileReference>     
+                            <gml:fileStructure codeSpace="http://cfconventions.org/Data/cf-standard-names/26/src/cf-standard-name-table.xml"></gml:fileStructure>              
+                            <gml:mimeType>application/octet-stream</gml:mimeType>
+                        </gml:File>
+                    </gml:rangeSet>
+                    <gml:coverageFunction>
+                        <gml:CoverageMappingRule>
+                            <gml:ruleDefinition>Linear</gml:ruleDefinition>
+                        </gml:CoverageMappingRule>
+                    </gml:coverageFunction>
+                    <gmlcov:rangeType>
+                        <swe:DataRecord></swe:DataRecord>
+                    </gmlcov:rangeType>              
+                </gmlcov:RectifiedGridCoverage>
+            </om:result>
+
+        </omso:GridSeriesObservation>
+    </wfs:member>
+    
+</wfs:FeatureCollection>
