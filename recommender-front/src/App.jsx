@@ -31,6 +31,7 @@ function App() {
   const [showAlert, setShowAlert] = useState(false);
   const [userPosition, setUserPosition] = useState(null);
   const [destination, setDestination] = useState(null);
+  const [pathActivity, setPathActivity] = useState('none');
   const [routeCoordinates, setRouteCoordinates] = useState([]);
   const [warning, setWarning] = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
@@ -68,6 +69,7 @@ function App() {
   };
 
   const handleCircleRoute = (latitude, longitude) => {
+    setPathActivity('Walking');
     if (userPosition === null) {
       setUserPosition([latitude, longitude]);
       setDestination([latitude, longitude]);
@@ -81,6 +83,7 @@ function App() {
       handleCircleRoute(userPosition[0], userPosition[1]);
       setPosition([userPosition[0], userPosition[1]]);
     } else {
+      setPathActivity('Direct');
       setDestination([latitude, longitude]);
       setPosition([latitude, longitude]);
     }
@@ -148,6 +151,13 @@ function App() {
       console.error('Error fetching the Point of Interests: ', error);
     }
   }
+
+  useEffect(() => {
+    console.log(pathActivity);
+    if (pathActivity === 'Walking') {
+      handleCircleRoute(userPosition[0], userPosition[1]);
+    }
+  }, [userPosition]);
 
   useEffect(() => {
     fetchData();
