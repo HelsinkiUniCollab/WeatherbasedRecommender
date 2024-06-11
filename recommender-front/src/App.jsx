@@ -18,7 +18,7 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import covertMedicalCategories from './MedicalFilter';
-import { getAllowedActivities } from './Utils';
+import { defaultLocation, getAllowedActivities } from './Utils';
 
 function App() {
   const DEFAULT_MED_CATEGORIES = ['Weightlifting', 'Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Climbing', 'Football'];
@@ -80,8 +80,12 @@ function App() {
 
   const handleSetDestination = (latitude, longitude, activity) => {
     if (activity === 'Walking') {
-      handleCircleRoute(userPosition[0], userPosition[1]);
-      setPosition([userPosition[0], userPosition[1]]);
+      let currentPosition = userPosition;
+      if (currentPosition === null) {
+        currentPosition = [defaultLocation.lat, defaultLocation.lon];
+      }
+      handleCircleRoute(currentPosition[0], currentPosition[1]);
+      setPosition([currentPosition[0], currentPosition[1]]);
     } else {
       setPathActivity('Direct');
       setDestination([latitude, longitude]);
