@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import { useMap } from 'react-leaflet';
 import RotateRightIcon from '@mui/icons-material/RotateRight';
+import { defaultLocation } from '../../Utils';
 
-function CircleButton({ handleCircleRoute }) {
-  const staticLat = 60.198805;
-  const staticLon = 24.935671;
+function CircleButton({ handleCircleRoute, userPosition }) {
   const [locating, setLocating] = useState(false);
 
   const buttonStyle = {
@@ -20,29 +19,20 @@ function CircleButton({ handleCircleRoute }) {
 
   const map = useMap();
 
-  const success = (position) => {
-    console.log(`Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`);
-    map.flyTo([position.coords.latitude, position.coords.longitude], map.getZoom());
-    handleCircleRoute(position.coords.latitude, position.coords.longitude);
-    setLocating(false);
-  };
-
-  const error = () => {
-    console.log('Unable to retrieve your location');
-    map.flyTo([staticLat, staticLon], map.getZoom());
-    handleCircleRoute(staticLat, staticLon);
+  const buildPath = () => {
+    let position = userPosition;
+    if (userPosition === null) {
+      position = [defaultLocation.lat, defaultLocation.lon];
+    }
+    map.flyTo([position[0], position[1]], map.getZoom());
+    handleCircleRoute(position[0], position[1]);
     setLocating(false);
   };
 
   const handleClick = () => {
     if (!locating) {
       setLocating(true);
-
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success, error);
-      } else {
-        console.log('Geolocation not supported');
-      }
+      buildPath();
     }
   };
 

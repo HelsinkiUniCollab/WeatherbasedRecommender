@@ -153,7 +153,6 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(pathActivity);
     if (pathActivity === 'Walking') {
       handleCircleRoute(userPosition[0], userPosition[1]);
     }

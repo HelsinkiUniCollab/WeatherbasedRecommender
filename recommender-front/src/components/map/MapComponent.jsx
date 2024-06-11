@@ -39,6 +39,7 @@ function MapComponent({
           handleSetOrigin={handleSetOrigin}
         />
         <CircleButton
+          userPosition={userPosition}
           handleCircleRoute={handleCircleRoute}
         />
         {userPosition && (
