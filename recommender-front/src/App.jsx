@@ -281,7 +281,7 @@ function App() {
                             <Tab label="Map" value="2" />
                           </TabList>
                         </Box>
-                        <TabPanel value="1">
+                        <TabPanel style={{ padding: '0px' }} value="1">
                           <RecommendationList
                             poiData={poiData}
                             userPosition={userPosition}
@@ -291,7 +291,7 @@ function App() {
                             handleSetDestination={handleSetDestination}
                           />
                         </TabPanel>
-                        <TabPanel value="2">
+                        <TabPanel style={{ padding: '0px' }} value="2">
                           <WeatherAlert showAlert={showAlert} />
                           <MapComponent
                             position={position}
