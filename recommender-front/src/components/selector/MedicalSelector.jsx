@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 
 function MedicalSelector({ selectedCategories, onCategoryChange }) {
-  const allCategories = ['Mental stress', 'Obesity', 'Diabetes (Type I)', 'Diabetes (Type II)', 'Hypertension', 'Coronary heart disease', 'Bronchial asthma', 'Osteoporosis', 'Back pain', 'Pregnancy'];
+  const allCategories = ['Mental stress', 'Obesity', 'Diabetes (Type I)', 'Diabetes (Type II)', 'Hypertension', 'Coronary heart disease', 'Asthma', 'Osteoporosis', 'Back pain', 'Pregnancy'];
   const isNoneChecked = selectedCategories.includes('None');
 
   const handleNoneCheckboxChange = () => {

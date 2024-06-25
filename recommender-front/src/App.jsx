@@ -3,6 +3,11 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import WeatherAlert from './components/warning/WeatherAlert';
 import MapComponent from './components/map/MapComponent';
@@ -19,6 +24,7 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import covertMedicalCategories from './MedicalFilter';
 import { defaultLocation, getAllowedActivities } from './Utils';
+import RecommendationList from './components/header/RecommendationList';
 
 function App() {
   const DEFAULT_MED_CATEGORIES = ['Weightlifting', 'Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Climbing', 'Football'];
@@ -196,6 +202,10 @@ function App() {
       setShowAlert(true);
     }
   }, [warning]);
+  const [value, setValue] = React.useState('1');
+  const handleChange1 = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -219,7 +229,7 @@ function App() {
             <Route
               path="/"
               element={(
-                <Grid container overflow="hidden" className="app-container">
+                <Grid container overflow="scroll" className="app-container">
                   <Grid
                     item
                     xs={12}
@@ -251,20 +261,42 @@ function App() {
                     xs={12}
                     className={`map-container${showAlert ? ' disabled' : ''}${headerHidden ? ' fullscreen' : ''}`}
                   >
-                    <WeatherAlert showAlert={showAlert} />
-                    <MapComponent
-                      position={position}
-                      accessibility={accessibility}
-                      poiData={poiData}
-                      time={times[selectedValue]}
-                      isMobile={isMobile}
-                      handleSetOrigin={handleSetOrigin}
-                      userPosition={userPosition}
-                      handleSetDestination={handleSetDestination}
-                      handleCircleRoute={handleCircleRoute}
-                      routeCoordinates={routeCoordinates}
-                      toggleHeader={toggleHeader}
-                    />
+                    <Box sx={{ width: '100%', typography: 'body1' }}>
+                      <TabContext value={value}>
+                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                          <TabList onChange={handleChange1}>
+                            <Tab label="Recommendations" value="1" />
+                            <Tab label="Map" value="2" />
+                          </TabList>
+                        </Box>
+                        <TabPanel value="1">
+                          <RecommendationList
+                            poiData={poiData}
+                            userPosition={userPosition}
+                            timeValue={times[selectedValue]}
+                            availableActivities={availableCategories}
+                            selectedActivities={selectedCategories}
+                            handleSetDestination={handleSetDestination}
+                          />
+                        </TabPanel>
+                        <TabPanel value="2">
+                          <WeatherAlert showAlert={showAlert} />
+                          <MapComponent
+                            position={position}
+                            accessibility={accessibility}
+                            poiData={poiData}
+                            time={times[selectedValue]}
+                            isMobile={isMobile}
+                            handleSetOrigin={handleSetOrigin}
+                            userPosition={userPosition}
+                            handleSetDestination={handleSetDestination}
+                            handleCircleRoute={handleCircleRoute}
+                            routeCoordinates={routeCoordinates}
+                            toggleHeader={toggleHeader}
+                          />
+                        </TabPanel>
+                      </TabContext>
+                    </Box>
                   </Grid>
                 </Grid>
                     )}

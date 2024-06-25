@@ -36,7 +36,7 @@ body {
   grid-template-rows: auto 1fr;
   /* Updated to allow the header to take its content's height */
   height: 100vh;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .simulator-container #map {

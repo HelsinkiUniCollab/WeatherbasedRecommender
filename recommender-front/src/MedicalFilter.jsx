@@ -5,7 +5,7 @@ Obesity: ['Weightlifting', 'Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'C
 'Diabetes (Type II)': ['Weightlifting', 'Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Climbing', 'Football'],
 Hypertension: ['Weightlifting', 'Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Climbing', 'Football'],
 'Coronary heart disease': ['Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Football'],
-'Bronchial asthma': ['Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Football'],
+Asthma: ['Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Football'],
 Osteoporosis: ['Weightlifting', 'Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Climbing', 'Football'],
 'Back pain': ['Weightlifting', 'Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Climbing', 'Football'],
 Pregnancy: ['Jogging', 'Swimming'] };
