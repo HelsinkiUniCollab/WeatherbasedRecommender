@@ -6,7 +6,7 @@ import { defaultLocation } from '../../Utils';
 
 function LocateButton({ handleSetOrigin, positionToFlyTo }) {
   const [locating, setLocating] = useState(false);
-  let userPosition = null;
+  // let userPosition = null;
 
   const buttonStyle = {
     position: 'absolute',
@@ -24,7 +24,7 @@ function LocateButton({ handleSetOrigin, positionToFlyTo }) {
     console.log(`Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`);
     map.flyTo([position.coords.latitude, position.coords.longitude], map.getZoom());
     handleSetOrigin(position.coords.latitude, position.coords.longitude);
-    userPosition = [position.coords.latitude, position.coords.longitude];
+    // userPosition = [position.coords.latitude, position.coords.longitude];
     setLocating(false);
   };
 
@@ -51,12 +51,6 @@ function LocateButton({ handleSetOrigin, positionToFlyTo }) {
       }
     }
   };
-
-  useEffect(() => {
-    if (userPosition === null) {
-      handleClick();
-    }
-  }, []);
 
   return (
     <div style={buttonStyle}>

@@ -170,6 +170,18 @@ function App() {
 
   useEffect(() => {
     fetchData();
+    const success = (userPositionEvent) => {
+      setUserPosition([userPositionEvent.coords.latitude, userPositionEvent.coords.longitude]);
+    };
+    const error = () => {
+      console.log('Unable to retrieve your location');
+      setUserPosition(defaultLocation.lat, defaultLocation.lon);
+    };
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      console.log('Geolocation not supported');
+    }
   }, []);
 
   useEffect(() => {
