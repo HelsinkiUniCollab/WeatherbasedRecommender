@@ -74,7 +74,8 @@ function App() {
     setUserPosition([latitude, longitude]);
   };
 
-  const handleCircleRoute = (latitude, longitude) => {
+  const handleCircleRoute = (latitude, longitude, newProfile) => {
+    setProfile(newProfile);
     setPathActivity('Walking');
     if (userPosition === null) {
       setUserPosition([latitude, longitude]);
@@ -90,7 +91,11 @@ function App() {
       if (currentPosition === null) {
         currentPosition = [defaultLocation.lat, defaultLocation.lon];
       }
-      handleCircleRoute(currentPosition[0], currentPosition[1]);
+      handleCircleRoute(
+        currentPosition[0],
+        currentPosition[1],
+        { route_len: 1000, route_type: 'fast', mobility_type: 'foot' },
+      );
       setPosition([currentPosition[0], currentPosition[1]]);
     } else {
       setPathActivity('Direct');
