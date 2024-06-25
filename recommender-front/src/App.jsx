@@ -44,8 +44,7 @@ function App() {
   const [selectedCategories, setSelectedCategories] = useState(['All']);
   const [availableCategories, setAvailableCategories] = useState(DEFAULT_MED_CATEGORIES);
   const [medicalCategories, setMedicalCategories] = useState(['None']);
-  const [profile, setProfile] = useState(['None']);
-  const [rec, setRec] = useState(['None']);
+  const [profile, setProfile] = useState({ route_len: 1000, route_type: 'fast', mobility_type: 'foot' });
   const [position, setPosition] = useState([60.2049, 24.9649]);
   let poisReceived = false;
   const toggleHeader = () => {
@@ -57,8 +56,6 @@ function App() {
   };
 
   const handleSliderChange = (event) => {
-    // remove
-    console.log(rec);
     setSelectedValue(event.target.value);
   };
 
@@ -268,9 +265,6 @@ function App() {
                       medicalCategories={medicalCategories}
                       setMedicalCategories={setMedicalCategories}
                       handleProfileChange={setProfile}
-                      userPosition={userPosition}
-                      chooseRec={setRec}
-                      handleSetDestination={handleSetDestination}
                     />
                   </Grid>
                   <Grid
