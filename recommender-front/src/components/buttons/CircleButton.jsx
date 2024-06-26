@@ -41,7 +41,7 @@ function CircleButton({ handleCircleRoute, userPosition }) {
     if (userPosition === null) {
       position = [defaultLocation.lat, defaultLocation.lon];
     }
-    map.flyTo([position[0], position[1]], map.getZoom());
+    map.flyTo([position[0], position[1]], 15);
     handleCircleRoute(
       position[0],
       position[1],

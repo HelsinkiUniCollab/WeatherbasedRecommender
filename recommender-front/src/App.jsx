@@ -47,6 +47,7 @@ function App() {
   const [medicalCategories, setMedicalCategories] = useState(['None']);
   const [profile, setProfile] = useState({ route_len: 1000, route_type: 'fast', mobility_type: 'foot' });
   const [position, setPosition] = useState([60.2049, 24.9649]);
+  const [tab, setTab] = React.useState('1');
   let poisReceived = false;
   const toggleHeader = () => {
     setHeaderHidden(!headerHidden);
@@ -84,6 +85,7 @@ function App() {
   };
 
   const handleSetDestination = (latitude, longitude, circle) => {
+    setTab('2');
     if (circle) {
       let currentPosition = userPosition;
       if (currentPosition === null) {
@@ -218,9 +220,8 @@ function App() {
       setShowAlert(true);
     }
   }, [warning]);
-  const [value, setValue] = React.useState('1');
-  const handleChange1 = (event, newValue) => {
-    setValue(newValue);
+  const changeTab = (event, newValue) => {
+    setTab(newValue);
   };
 
   return (
@@ -275,9 +276,9 @@ function App() {
                     className={`map-container${showAlert ? ' disabled' : ''}${headerHidden ? ' fullscreen' : ''}`}
                   >
                     <Box sx={{ width: '100%', typography: 'body1' }}>
-                      <TabContext value={value}>
+                      <TabContext value={tab}>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                          <TabList onChange={handleChange1}>
+                          <TabList onChange={changeTab}>
                             <Tab label="Recommendations" value="1" />
                             <Tab label="Map" value="2" />
                           </TabList>

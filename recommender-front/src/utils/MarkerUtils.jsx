@@ -11,6 +11,10 @@ const createMarkers = (poiData, time, handleSetDestination) => {
     return [];
   }
 
+  const handleSetDestinationButton = (event, marker, poi) => {
+    marker.closePopup();
+    handleSetDestination(poi.latitude, poi.longitude, false);
+  };
   return poiData.map((poi) => {
     const tags = Object.entries(poi.weather[time]);
     const markerIcon = createMarkerIcon(poi.weather[time].Score);
@@ -64,7 +68,7 @@ const createMarkers = (poiData, time, handleSetDestination) => {
           </Grid>
           <Grid item>
             <DestinationButton
-              onClick={() => handleSetDestination(poi.latitude, poi.longitude, false)}
+              onClick={(event) => handleSetDestinationButton(event, marker, poi)}
             />
           </Grid>
         </Grid>
