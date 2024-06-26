@@ -83,8 +83,8 @@ function App() {
     }
   };
 
-  const handleSetDestination = (latitude, longitude, activity) => {
-    if (activity === 'Walking') {
+  const handleSetDestination = (latitude, longitude, circle) => {
+    if (circle) {
       let currentPosition = userPosition;
       if (currentPosition === null) {
         currentPosition = [defaultLocation.lat, defaultLocation.lon];

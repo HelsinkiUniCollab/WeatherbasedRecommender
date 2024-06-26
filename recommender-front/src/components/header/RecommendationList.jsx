@@ -56,7 +56,7 @@ function getOutdoorScore(poiData, timeValue) {
 
 function getWalking(poiData, timeValue) {
   const walking = {};
-  walking.name = 'Walking Outside';
+  walking.name = 'Nearby Outside';
   walking.latitude = defaultLocation.lat;
   walking.longitude = defaultLocation.lon;
   walking.catetype = 'Outdoor';
@@ -67,6 +67,7 @@ function getWalking(poiData, timeValue) {
   walking.distance = 0.0;
   walking.activities = ['Walking'];
   walking.activity = 'Walking';
+  walking.circle = true;
   return walking;
 }
 
@@ -87,6 +88,7 @@ function makeNewPOIs(pois, timeValue, userPosition, allowedActivities) {
     newObj.distance = getDistance(element, userPos);
     newObj.activities = element.activities.filter((activity) => allowedActivities
       .includes(activity));
+    newObj.circle = false;
     newPOIs.push(newObj);
   });
   return newPOIs;
@@ -139,7 +141,7 @@ function getRecs(poiData, timeValue, userPosition, allowedActivities) {
 }
 
 function itemClick(element, handleSetDestination) {
-  handleSetDestination(element.latitude, element.longitude, element.activity);
+  handleSetDestination(element.latitude, element.longitude, element.circle);
 }
 
 function SettingsSelector({ poiData, userPosition, timeValue,

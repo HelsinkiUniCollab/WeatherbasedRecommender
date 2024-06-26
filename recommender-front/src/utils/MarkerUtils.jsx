@@ -64,7 +64,7 @@ const createMarkers = (poiData, time, handleSetDestination) => {
           </Grid>
           <Grid item>
             <DestinationButton
-              onClick={() => handleSetDestination(poi.latitude, poi.longitude, 'Direct')}
+              onClick={() => handleSetDestination(poi.latitude, poi.longitude, false)}
             />
           </Grid>
         </Grid>
