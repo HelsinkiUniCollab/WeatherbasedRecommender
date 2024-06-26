@@ -56,7 +56,7 @@ function getOutdoorScore(poiData, timeValue) {
 
 function getWalking(poiData, timeValue) {
   const walking = {};
-  walking.name = 'Walking';
+  walking.name = 'Walking Outside';
   walking.latitude = defaultLocation.lat;
   walking.longitude = defaultLocation.lon;
   walking.catetype = 'Outdoor';
@@ -129,7 +129,9 @@ function getRecs(poiData, timeValue, userPosition, allowedActivities) {
   pois.sort((a, b) => (a.score < b.score ? 1 : -1));
   const filteredPOIs = pois.filter((poi) => poi.distance < AREA_RADIUS);
   const selectedPOIs = getNecessaryPOIs(filteredPOIs, pois);
-  selectedPOIs.push(getWalking(poiData, timeValue));
+  if (allowedActivities.includes('Walking')) {
+    selectedPOIs.push(getWalking(poiData, timeValue));
+  }
   addMissingPOIs(selectedPOIs, filteredPOIs);
   selectedPOIs.sort((a, b) => (a.score < b.score ? 1 : -1));
   console.log(selectedPOIs);

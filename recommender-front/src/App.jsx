@@ -27,10 +27,11 @@ import { defaultLocation, getAllowedActivities } from './Utils';
 import RecommendationList from './components/header/RecommendationList';
 
 function App() {
-  const DEFAULT_MED_CATEGORIES = ['Weightlifting', 'Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Climbing', 'Football'];
+  const DEFAULT_MED_CATEGORIES = ['Weightlifting', 'Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Climbing', 'Football', 'Walking'];
   const [accessibility, setAccessibility] = useState('');
   const [allPoiData, setAllPoiData] = useState([]);
   const [poiData, setPoiData] = useState([]);
+  const [dataFetched, setDataFetched] = useState(false);
   const [times, setTimes] = useState(0);
   const [selectedValue, setSelectedValue] = useState(0);
   const [open, setOpen] = useState(false);
@@ -159,6 +160,7 @@ function App() {
           medicalCategories,
         );
       }
+      setDataFetched(true);
     } catch (error) {
       console.error('Error fetching the Point of Interests: ', error);
     }
@@ -258,13 +260,13 @@ function App() {
                       handleOpen={handleOpen}
                       handleClose={handleClose}
                       isMobile={isMobile}
-                      poiData={poiData}
                       selectedCategories={selectedCategories}
                       setSelectedCategories={setSelectedCategories}
                       availableCategories={availableCategories}
                       medicalCategories={medicalCategories}
                       setMedicalCategories={setMedicalCategories}
                       handleProfileChange={setProfile}
+                      dataFetched={dataFetched}
                     />
                   </Grid>
                   <Grid

@@ -13,9 +13,9 @@ import AccessibilitySelector from '../selector/AccessibilitySelector';
 
 function HeaderComponent({
   handleChange, times, sliderValue, onChange, isMobile, open, handleOpen,
-  handleClose, poiData, availableCategories,
+  handleClose, availableCategories,
   selectedCategories, setSelectedCategories,
-  medicalCategories, setMedicalCategories,
+  medicalCategories, setMedicalCategories, dataFetched,
 }) {
   const hours = parseSliderLabels(times);
   return (
@@ -76,7 +76,7 @@ function HeaderComponent({
       </Grid>
       <Grid item xs={11} sm={11} md={11} lg={11} className="slider-item" key="slider" order={{ lg: 5, md: 5, sm: 3, xs: 3 }}>
         <Typography variant="h2">Time</Typography>
-        {poiData.length === 0 ? <LoadingIndicatorComponent />
+        {!dataFetched ? <LoadingIndicatorComponent />
           : (
             <Slider
               value={sliderValue}

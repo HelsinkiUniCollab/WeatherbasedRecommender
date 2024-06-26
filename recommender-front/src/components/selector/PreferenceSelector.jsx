@@ -10,7 +10,7 @@ import '../../assets/style.css';
 import Typography from '@mui/material/Typography';
 
 function PreferenceSelector({ availableCategories, selectedCategories, onCategoryChange }) {
-  const allCategories = ['Weightlifting', 'Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Climbing', 'Football'];
+  const allCategories = ['Weightlifting', 'Jogging', 'Skateboarding', 'Cycling', 'Swimming', 'Climbing', 'Football', 'Walking'];
 
   const isAllChecked = selectedCategories.includes('All');
 
