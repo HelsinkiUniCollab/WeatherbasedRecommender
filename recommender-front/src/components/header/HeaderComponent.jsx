@@ -2,7 +2,6 @@ import React from 'react';
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import LoadingIndicatorComponent from './LoadingIndicatorComponent';
 import InfoComponent from './InfoComponent';
 import parseSliderLabels from '../../utils/HeaderUtils';
 import PreferenceSelector from '../selector/PreferenceSelector';
@@ -10,14 +9,16 @@ import logo from '../../assets/WeatherBasedRecommender.svg';
 import '../../assets/style.css';
 import MedicalSelector from '../selector/MedicalSelector';
 import AccessibilitySelector from '../selector/AccessibilitySelector';
+import LoadingIndicatorComponent from './LoadingIndicatorComponent';
+import WeatherMark from './WeatherMark';
 
 function HeaderComponent({
-  handleChange, times, sliderValue, onChange, isMobile, open, handleOpen,
+  handleChange, sliderValue, onChange, isMobile, open, handleOpen,
   handleClose, availableCategories,
   selectedCategories, setSelectedCategories,
-  medicalCategories, setMedicalCategories, dataFetched,
+  medicalCategories, setMedicalCategories, dataFetched, weather,
 }) {
-  const hours = parseSliderLabels(times);
+  const marks = parseSliderLabels(weather);
   return (
     <Grid
       container
@@ -83,7 +84,8 @@ function HeaderComponent({
               onChange={onChange}
               min={0}
               max={isMobile ? 10 : 24}
-              marks={hours}
+              slots={{ markLabel: WeatherMark }}
+              marks={marks}
             />
           )}
       </Grid>

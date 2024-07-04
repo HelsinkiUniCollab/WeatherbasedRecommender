@@ -136,7 +136,6 @@ function getRecs(poiData, timeValue, userPosition, allowedActivities) {
   }
   addMissingPOIs(selectedPOIs, filteredPOIs);
   selectedPOIs.sort((a, b) => (a.score < b.score ? 1 : -1));
-  console.log(selectedPOIs);
   return selectedPOIs;
 }
 
@@ -151,7 +150,6 @@ function SettingsSelector({ poiData, userPosition, timeValue,
     if (typeof timeValue === 'undefined') {
       return;
     }
-    console.log('SettingsSelector');
     const allowedActivities = getAllowedActivities(availableActivities, selectedActivities);
     const pois = getRecs(poiData, timeValue, userPosition, allowedActivities);
     setDataToShow(pois);

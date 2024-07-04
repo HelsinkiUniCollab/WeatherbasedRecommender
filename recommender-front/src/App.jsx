@@ -33,6 +33,7 @@ function App() {
   const [poiData, setPoiData] = useState([]);
   const [dataFetched, setDataFetched] = useState(false);
   const [times, setTimes] = useState(0);
+  const [outdoorWeather, setOutdoorWeather] = useState(0);
   const [selectedValue, setSelectedValue] = useState(0);
   const [open, setOpen] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -212,6 +213,12 @@ function App() {
   useEffect(() => {
     if (poiData.length > 0) {
       setTimes(Object.keys(poiData[0].weather));
+      for (let i = 0; i < poiData.length; i += 1) {
+        if (poiData[i].catetype === 'Outdoor') {
+          setOutdoorWeather(poiData[i].weather);
+          break;
+        }
+      }
     }
   }, [poiData]);
 
@@ -254,7 +261,7 @@ function App() {
                   >
                     <HeaderComponent
                       handleChange={handleOptionChange}
-                      times={times}
+                      weather={outdoorWeather}
                       sliderValue={selectedValue}
                       onChange={handleSliderChange}
                       open={open}
@@ -300,7 +307,6 @@ function App() {
                             accessibility={accessibility}
                             poiData={poiData}
                             time={times[selectedValue]}
-                            isMobile={isMobile}
                             handleSetOrigin={handleSetOrigin}
                             userPosition={userPosition}
                             handleSetDestination={handleSetDestination}

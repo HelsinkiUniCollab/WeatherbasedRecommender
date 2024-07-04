@@ -7,6 +7,41 @@ body {
   /* Overflow should not be set to hidden to allow content scrolling */
 }
 
+/*
+.MuiSlider-mark {
+}
+
+.MuiSlider-root {
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}*/
+
+.weather_icon {
+  width: 20px;
+  height: auto;
+}
+
+.temperature_inactive {
+  font-size: small;
+  color: grey;
+}
+
+.temperature_active {
+  font-size: small;
+  color: black;
+}
+
+.hour_inactive {
+  font-size: medium;
+  color: grey;
+}
+
+.hour_active {
+  font-size: medium;
+  color: black;
+}
+
 /* Reset zoom and max-zoom */
 @viewport {
   zoom: 1;
@@ -83,6 +118,7 @@ body {
 .slider-item {
   z-index: 4;
   /* Makes sure slider is visible */
+  height: 110px;
 }
 
 .info-item {
