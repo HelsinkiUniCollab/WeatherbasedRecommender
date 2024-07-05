@@ -110,8 +110,12 @@ def get_pois():
     pois = []
     read_pois = read_POIs()
     for parsed_poi in read_pois:
+        hours = parsed_poi['hours'] if 'hours' in parsed_poi else None
+        sat = parsed_poi['sat'] if 'sat' in parsed_poi else None
+        sun = parsed_poi['sun'] if 'sun' in parsed_poi else None
         poi = PointOfInterest(parsed_poi['name'], parsed_poi['latitude'], parsed_poi['longitude'],
-                            parsed_poi['not_accessible_for'], parsed_poi['categories'], parsed_poi['activities'])
+                            parsed_poi['not_accessible_for'], parsed_poi['categories'], parsed_poi['activities'],
+                            hours, sat, sun)
         pois.append(poi)
     return pois
 

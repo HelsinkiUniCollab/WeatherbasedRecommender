@@ -1,7 +1,7 @@
 from .db import get_db
 
 db = get_db()
-pois_collection = db['pois']
+pois_collection = "db['pois']"
 
 class Poi:
     """

@@ -107,12 +107,34 @@ function App() {
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
+  const getCurrentTime = () => {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    return `${hours}:${minutes}`;
+  };
+
+  const timeToNumber = (time) => {
+    const timeSplit = time.split(':');
+    const hours = Number(timeSplit[0]);
+    const minutes = Number(timeSplit[1]) / 60;
+    return hours + minutes;
+  };
+
+  const getSelectedTimeAsNumber = (selectedStr) => {
+    if (selectedStr === undefined || selectedStr === 'Current') {
+      return timeToNumber(getCurrentTime());
+    }
+    return timeToNumber(selectedStr);
+  };
+
   const filterPoiData = (
     data,
     access,
     selectedActivities,
     availableActivities,
     healthCategories,
+    selectedTimeStr,
   ) => {
     let filteredData = data;
 
@@ -138,6 +160,16 @@ function App() {
     filteredData = filteredData.filter((p) => p.activities.some((r) => activities
       .includes(r)));
 
+    // Filter based on working hours (simplified)
+    const selectedTime = getSelectedTimeAsNumber(selectedTimeStr);
+    filteredData = filteredData.filter((p) => {
+      if (p.hours === null) {
+        return true;
+      }
+      const openHour = timeToNumber(p.hours[0]);
+      const closeHour = timeToNumber(p.hours[1]);
+      return selectedTime >= openHour && selectedTime <= closeHour;
+    });
     setPoiData(filteredData);
   };
 
@@ -198,8 +230,10 @@ function App() {
       selectedCategories,
       availableCategories,
       medicalCategories,
+      times[selectedValue],
     );
-  }, [accessibility, allPoiData, selectedCategories, availableCategories, medicalCategories]);
+  }, [accessibility, allPoiData, selectedCategories, availableCategories, medicalCategories,
+    selectedValue]);
 
   useEffect(() => {
     if (medicalCategories.length > 0 && medicalCategories[0] !== 'None') {
