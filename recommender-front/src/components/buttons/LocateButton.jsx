@@ -4,7 +4,7 @@ import MyLocationIcon from '@mui/icons-material/MyLocation';
 import { useMap } from 'react-leaflet';
 import { defaultLocation } from '../../Utils';
 
-function LocateButton({ handleSetOrigin, positionToFlyTo }) {
+function LocateButton({ handleSetOrigin, positionToFlyTo, zoom }) {
   const [locating, setLocating] = useState(false);
   // let userPosition = null;
 
@@ -21,9 +21,7 @@ function LocateButton({ handleSetOrigin, positionToFlyTo }) {
   const map = useMap();
 
   const success = (position) => {
-    console.log('map.getZoom()');
-    console.log(map.getZoom());
-    map.flyTo([position.coords.latitude, position.coords.longitude], 15);
+    map.flyTo([position.coords.latitude, position.coords.longitude], zoom);
     handleSetOrigin(position.coords.latitude, position.coords.longitude);
     // userPosition = [position.coords.latitude, position.coords.longitude];
     setLocating(false);
@@ -31,12 +29,12 @@ function LocateButton({ handleSetOrigin, positionToFlyTo }) {
 
   // I had to pass this property here to call flyTo
   useEffect(() => {
-    map.flyTo([positionToFlyTo[0], positionToFlyTo[1]], 15);
-  }, [positionToFlyTo]);
+    map.flyTo([positionToFlyTo[0], positionToFlyTo[1]], zoom);
+  }, [positionToFlyTo, zoom]);
 
   const error = () => {
     console.log('Unable to retrieve your location');
-    map.flyTo([defaultLocation.lat, defaultLocation.lon], 15);
+    map.flyTo([defaultLocation.lat, defaultLocation.lon], zoom);
     handleSetOrigin(defaultLocation.lat, defaultLocation.lon);
     setLocating(false);
   };

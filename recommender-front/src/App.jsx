@@ -46,8 +46,8 @@ function App() {
   const [selectedCategories, setSelectedCategories] = useState(['All']);
   const [availableCategories, setAvailableCategories] = useState(DEFAULT_MED_CATEGORIES);
   const [medicalCategories, setMedicalCategories] = useState(['None']);
+  const DEFAULT_PROFILE = { route_len: 1000, route_type: 'fast', mobility_type: 'foot' };
   const [profile, setProfile] = useState({ route_len: 1000, route_type: 'fast', mobility_type: 'foot' });
-  const [position, setPosition] = useState([60.2049, 24.9649]);
   const [tab, setTab] = React.useState('1');
   let poisReceived = false;
   const toggleHeader = () => {
@@ -71,6 +71,7 @@ function App() {
   };
 
   const handleSetOrigin = (latitude, longitude) => {
+    setPathActivity('Location');
     setUserPosition([latitude, longitude]);
   };
 
@@ -97,11 +98,10 @@ function App() {
         currentPosition[1],
         { route_len: 1000, route_type: 'fast', mobility_type: 'foot' },
       );
-      setPosition([currentPosition[0], currentPosition[1]]);
     } else {
+      setProfile(DEFAULT_PROFILE);
       setPathActivity('Direct');
       setDestination([latitude, longitude]);
-      setPosition([latitude, longitude]);
     }
   };
 
@@ -182,7 +182,7 @@ function App() {
     };
     const error = () => {
       console.log('Unable to retrieve your location');
-      setUserPosition(defaultLocation.lat, defaultLocation.lon);
+      setUserPosition([defaultLocation.lat, defaultLocation.lon]);
     };
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(success, error);
@@ -246,6 +246,7 @@ function App() {
           origin={userPosition}
           destination={destination}
           setRouteCoordinates={setRouteCoordinates}
+          pathActivity={pathActivity}
           settings={profile}
         />
         <Router>
@@ -273,7 +274,6 @@ function App() {
                       availableCategories={availableCategories}
                       medicalCategories={medicalCategories}
                       setMedicalCategories={setMedicalCategories}
-                      handleProfileChange={setProfile}
                       dataFetched={dataFetched}
                     />
                   </Grid>
@@ -303,7 +303,6 @@ function App() {
                         <TabPanel style={{ padding: '0px' }} value="2">
                           <WeatherAlert showAlert={showAlert} />
                           <MapComponent
-                            position={position}
                             accessibility={accessibility}
                             poiData={poiData}
                             time={times[selectedValue]}

@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Polyline } from 'react-leaflet';
 import MarkersComponent from './MarkersComponent';
 import UserLocationMarker from './UserLocationComponent';
 import LocateButton from '../buttons/LocateButton';
 import '../../assets/style.css';
 import CircleButton from '../buttons/CircleButton';
+import { getZoom, getMapPosition } from '../../Utils';
 
 function MapComponent({
   poiData, time, handleSetOrigin, userPosition, handleSetDestination, routeCoordinates,
-  headerHidden, handleCircleRoute, position,
+  headerHidden, handleCircleRoute,
 }) {
   const minZoom = 12;
   const maxZoom = 18;
+  const [zoom, setZoom] = useState(maxZoom);
   const bounds = [[60, 24.6], [60.35, 25.355]];
+  const [position, setPosition] = useState([60.2049, 24.9649]);
   const viscosity = 1;
+  useEffect(() => {
+    setPosition(getMapPosition(routeCoordinates, userPosition));
+    setZoom(getZoom(routeCoordinates, minZoom));
+  }, [routeCoordinates]);
 
   return (
     <div className={`map-container${headerHidden ? ' fullscreen' : ''}`}>
@@ -21,7 +28,7 @@ function MapComponent({
         id="map"
         center={position}
         scrollWheelZoom={false}
-        zoom={minZoom}
+        zoom={zoom}
         minZoom={minZoom}
         maxZoom={maxZoom}
         maxBounds={bounds}
@@ -35,6 +42,7 @@ function MapComponent({
           }
         />
         <LocateButton
+          zoom={zoom}
           positionToFlyTo={position}
           handleSetOrigin={handleSetOrigin}
         />

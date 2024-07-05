@@ -1,7 +1,11 @@
 import { useCallback, useEffect } from 'react';
 
-function PathUtil({ origin, destination, setRouteCoordinates, settings }) {
+function PathUtil({ origin, destination, setRouteCoordinates, settings, pathActivity }) {
   const handleSendCoords = useCallback(async () => {
+    if (!settings || pathActivity === 'Location') {
+      setRouteCoordinates([]);
+      return;
+    }
     let path = '/api/path?';
     if (origin[0] === destination[0] && origin[1] === destination[1]) {
       path = '/api/circle?';

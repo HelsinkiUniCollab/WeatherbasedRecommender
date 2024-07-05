@@ -47,11 +47,6 @@ const parseSliderLabels = (weather) => {
       hours.push({ value, label });
     }
   }
-  console.log('hours1');
-  console.log(hours);
-  // hours[0] = { value: 0, label: 'Now' };
-  console.log('hours2');
-  console.log(hours);
   return hours;
 };
 
