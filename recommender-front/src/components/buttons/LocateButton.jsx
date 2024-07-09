@@ -29,7 +29,9 @@ function LocateButton({ handleSetOrigin, positionToFlyTo, zoom }) {
 
   // I had to pass this property here to call flyTo
   useEffect(() => {
-    map.flyTo([positionToFlyTo[0], positionToFlyTo[1]], zoom);
+    if (positionToFlyTo && zoom) {
+      map.flyTo([positionToFlyTo[0], positionToFlyTo[1]], zoom);
+    }
   }, [positionToFlyTo, zoom]);
 
   const error = () => {
