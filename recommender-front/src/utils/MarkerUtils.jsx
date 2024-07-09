@@ -6,6 +6,16 @@ import Typography from '@mui/material/Typography';
 import createMarkerIcon from './Icon';
 import DestinationButton from '../components/buttons/DestinationButton';
 
+const getActivitiesString = (poi) => {
+  let str = '';
+  poi.activities.forEach((activity) => {
+    str = str.concat(activity);
+    str = str.concat(',');
+    str = str.concat(' ');
+  });
+  str = str.substring(0, str.length - 2);
+  return str;
+};
 const createMarkers = (poiData, time, handleSetDestination) => {
   if (!poiData || !time) {
     return [];
@@ -21,6 +31,7 @@ const createMarkers = (poiData, time, handleSetDestination) => {
     const marker = L.marker([poi.latitude, poi.longitude], {
       icon: markerIcon,
     });
+    const activitiesString = getActivitiesString(poi);
 
     const container = (
       <center>
@@ -34,10 +45,16 @@ const createMarkers = (poiData, time, handleSetDestination) => {
             {poi.category}
           </i>
         </Typography>
+        <br />
+        <Typography variant="h8">
+          <b>
+            {activitiesString}
+          </b>
+        </Typography>
         <Grid
           container
           spacing={1}
-          style={{ marginTop: 5 }}
+          style={{ marginTop: 2 }}
           alignItems="center"
           justifyContent="center"
         >
