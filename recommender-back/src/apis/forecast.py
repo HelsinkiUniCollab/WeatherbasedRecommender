@@ -22,10 +22,16 @@ class Forecast:
         current, start, end = get_forecast_times()
         print(f"Query for the new Grid object at time: {current} UTC.")
         forecast_data = self.get_latest_forecast(start, end)
+        print("forecast_data")
+        print(forecast_data)
 
         latest_forecast = max(forecast_data.data.keys())
+        print("latest_forecast")
+        print(latest_forecast)
         if not self.data or latest_forecast > max(self.data.keys()):
             self.data = forecast_data.data[latest_forecast]
+            print("self.data")
+            print(self.data)
             self.parse_forecast_data()
             self.update_forecast_properties()
 
@@ -39,6 +45,12 @@ class Forecast:
         Returns:
             Grid: The forecast grid data within the specified time range.
         """
+        print("get_latest_forecast")
+        print(start,
+            end,
+            Config.FMI_FORECAST['WEATHER']['BBOX'],
+            Config.FMI_FORECAST['WEATHER']['TIMESTEP'],
+            Config.FMI_FORECAST['WEATHER']['PARAMETERS'])
         return self.fetcher.get_forecast_data(
             start,
             end,
