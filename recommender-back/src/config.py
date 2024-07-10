@@ -38,7 +38,7 @@ class Config:
         },
         'TIMEOUT': {
             'WEATHER_WARNING': 3600,
-            'FORECAST_WEATHER': 1800,
+            'FORECAST_WEATHER': 3600,
             'FORECAST_AIRQUALITY': 86400,
         }
     }
