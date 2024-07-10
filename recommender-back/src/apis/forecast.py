@@ -154,6 +154,8 @@ class Forecast:
 
         returned_data = {hour: {} for hour in data}
 
+        print("NUMPY version")
+        print(np.__version__)
         flag = False
         flag2 = False
         for hour, hour_data in data.items():
