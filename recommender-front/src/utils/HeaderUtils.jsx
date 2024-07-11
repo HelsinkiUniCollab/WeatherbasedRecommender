@@ -5,7 +5,6 @@ const getClouds = (weather) => Number(weather['Cloud amount'].replace(' %', ''))
 
 const getWeatherLabel = (temperature, clouds, precipitation) => {
   if (precipitation > 0) {
-    console.log(precipitation);
     if (temperature < 0) {
       return 'snow';
     }

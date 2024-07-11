@@ -154,24 +154,11 @@ class Forecast:
 
         returned_data = {hour: {} for hour in data}
 
-        print("NUMPY version")
-        print(np.__version__)
-        flag = False
-        flag2 = False
         for hour, hour_data in data.items():
-            if not flag:
-                flag = True
-                print("hour_data")
-                print(str(hour_data)[0:400])
             for poi_coord, nearest in closest_coordinates_fore.items():
                 nearest_str = f"({nearest[0]}, {nearest[1]})"
                 if nearest_str in hour_data:
                     forecast = hour_data[nearest_str]
-                    if not flag2:
-                        flag2 = True
-                        print(nearest_str)
-                        print("forecast")
-                        print(forecast)
                     returned_data[hour][
                         f"{poi_coord[0]}, {poi_coord[1]}"
                     ] = self.parse_forecast(forecast)
