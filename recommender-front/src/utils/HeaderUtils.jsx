@@ -10,10 +10,10 @@ const getWeatherLabel = (temperature, clouds, precipitation) => {
     }
     return 'rain';
   }
-  if (clouds > 87.5) {
+  if (clouds >= 87.5) {
     return 'clou';
   }
-  if (clouds > 37.5) {
+  if (clouds >= 37.5) {
     return 'psun';
   }
   return 'sunn';

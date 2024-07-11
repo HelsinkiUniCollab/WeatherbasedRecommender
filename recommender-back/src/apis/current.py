@@ -30,7 +30,7 @@ class Current:
                 'Humidity': str(obs.data[station]['rh']['values'][-1]) + ' %',
                 'Precipitation': str(obs.data[station]['ri_10min']['values'][-1])
                 + ' mm',
-                'Cloud amount': str(obs.data[station]['n_man']['values'][-1]) + ' %',
+                'Cloud amount': str(obs.data[station]['n_man']['values'][-1] / 8 * 100) + ' %',
             }
             for value in list(weatherdata):
                 if 'nan' in str(weatherdata[value]):
