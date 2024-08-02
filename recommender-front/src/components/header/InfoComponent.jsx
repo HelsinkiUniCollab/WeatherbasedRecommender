@@ -33,6 +33,9 @@ function InfoComponent({ open, handleOpen, handleClose }) {
             <li>
               <Typography variant="infotext"><a href="https://www.graphhopper.com/">GraphHopper</a></Typography>
             </li>
+            <li>
+              <Typography variant="infotext"><a href="https://ionic.io/ionicons">Ionicons</a></Typography>
+            </li>
           </ul>
         </DialogContent>
       </Dialog>

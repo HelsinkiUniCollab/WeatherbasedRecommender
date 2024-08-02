@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 import InfoComponent from './InfoComponent';
 import parseSliderLabels from '../../utils/HeaderUtils';
 import PreferenceSelector from '../selector/PreferenceSelector';
-import logo from '../../assets/WeatherBasedRecommender.svg';
+import logo from '../../assets/WeatherBasedRecommender.png';
 import '../../assets/style.css';
 import MedicalSelector from '../selector/MedicalSelector';
 import AccessibilitySelector from '../selector/AccessibilitySelector';
