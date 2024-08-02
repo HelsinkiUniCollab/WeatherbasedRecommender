@@ -168,6 +168,10 @@ function App() {
       }
       const openHour = timeToNumber(p.hours[0]);
       const closeHour = timeToNumber(p.hours[1]);
+      if (!(selectedTime >= openHour && selectedTime <= closeHour)) {
+        console.log(selectedTime);
+        console.log(p);
+      }
       return selectedTime >= openHour && selectedTime <= closeHour;
     });
     setPoiData(filteredData);
