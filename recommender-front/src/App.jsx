@@ -245,7 +245,7 @@ function App() {
   }, [medicalCategories]);
 
   useEffect(() => {
-    if (poiData.length > 0) {
+    if (poiData.length > 0 && outdoorWeather === 0) {
       setTimes(Object.keys(poiData[0].weather));
       for (let i = 0; i < poiData.length; i += 1) {
         if (poiData[i].catetype === 'Outdoor') {
@@ -269,8 +269,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <HelmetProvider>
         <Helmet>
-          <title>Weather-Based Recommender</title>
-          <meta name="description" content="Weather-Based Recommender" />
+          <title>Paths and Recreation</title>
+          <meta name="description" content="Paths and Recreation" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
