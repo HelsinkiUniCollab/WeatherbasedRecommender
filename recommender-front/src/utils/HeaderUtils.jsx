@@ -24,7 +24,6 @@ const parseSliderLabels = (weather) => {
   if (!weather) {
     return hours;
   }
-  console.log(weather);
   const keys = Object.keys(weather);
   for (let i = 0; i <= keys.length; i += 1) {
     const currentWeather = weather[keys[i]];
