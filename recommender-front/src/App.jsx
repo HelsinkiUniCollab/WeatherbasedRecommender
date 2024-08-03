@@ -210,7 +210,13 @@ function App() {
   useEffect(() => {
     fetchData();
     const success = (userPositionEvent) => {
-      setUserPosition([userPositionEvent.coords.latitude, userPositionEvent.coords.longitude]);
+      if (userPositionEvent.coords.latitude < 60 || userPositionEvent.coords.latitude > 60.35
+          || userPositionEvent.coords.longitude < 24.6
+              || userPositionEvent.coords.longitude > 25.355) {
+        setUserPosition([defaultLocation.lat, defaultLocation.lon]);
+      } else {
+        setUserPosition([userPositionEvent.coords.latitude, userPositionEvent.coords.longitude]);
+      }
     };
     const error = () => {
       console.log('Unable to retrieve your location');

@@ -21,8 +21,15 @@ function LocateButton({ handleSetOrigin, positionToFlyTo, zoom }) {
   const map = useMap();
 
   const success = (position) => {
-    map.flyTo([position.coords.latitude, position.coords.longitude], zoom);
-    handleSetOrigin(position.coords.latitude, position.coords.longitude);
+    if (position.coords.latitude < 60 || position.coords.latitude > 60.35
+          || position.coords.longitude < 24.6
+              || position.coords.longitude > 25.355) {
+      map.flyTo([defaultLocation.lat, defaultLocation.lon], zoom);
+      handleSetOrigin(defaultLocation.lat, defaultLocation.lon);
+    } else {
+      map.flyTo([position.coords.latitude, position.coords.longitude], zoom);
+      handleSetOrigin(position.coords.latitude, position.coords.longitude);
+    }
     // userPosition = [position.coords.latitude, position.coords.longitude];
     setLocating(false);
   };
